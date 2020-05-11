@@ -1,0 +1,463 @@
+body{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.HcComBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+
+
+}
+
+.HcCon {
+    padding: 5px;
+    width: 600px;
+    background-color: #eaf2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 15px auto;
+
+}
+.componCon {
+    width: 500px;
+    height: auto;
+    padding: 5px;
+    margin: 1px;
+}
+.HcHeadCon {
+    /*background-color: beige;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+.HcHeadImg {
+    /*margin-top: 5px;*/
+    width: 55px;
+    height: 55px;
+    background-color: #33548a;
+    border-radius: 100%;
+}
+.HcHeadNTCon {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5px;
+    margin-left: 5px;
+    /*background-color: red;*/
+}
+.HcHeadName {
+    display: block;
+    font-size: 20px;
+    padding: 3px;
+}
+.HcHeadTime {
+    display: block;
+    font-size: 13px;
+    padding: 3px;
+}
+
+.HcBodyCon {
+    /*max-height: 300px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.HcBodyCon p {
+    max-width: 500px;
+    padding: 5px;
+    /*display: flex;*/
+    /*align-content: flex-start;*/
+    /*align-items: flex-start;*/
+    /*background-color: #33548a;*/
+}
+.HcDownCon {
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /*background-color: aqua;*/
+}
+.HcIcon {
+    display: flex;
+    /*background-color: red;*/
+    margin: 0 5px;
+
+}
+.HcIcon:hover {
+    cursor: pointer;
+}
+
+.LikeShowCon {
+    /*background-color: antiquewhite;*/
+    display: flex;
+    flex-wrap: wrap;
+}
+.likeShowName {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    /*background-color: rebeccapurple;*/
+    margin: 0 5px;
+}
+.SubCmtCon {
+    /*background-color: aqua;*/
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.SubCmtInput {
+    width: 430px;
+    height: 25px;
+    font-size: 18px;
+
+    resize: none;
+    border-radius: 5px;
+    padding: 1px;
+    border: #33548a 2px solid;
+    outline: none;
+
+}
+.SubCmtBtn {
+    outline: none;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #37578c;
+    color: #ffffff;
+    width: 60px;
+    height: 30px;
+    margin-left: 5px;
+}
+.SubCmtBtn:hover {
+    cursor: pointer;
+}
+.HcLikeIcon{
+    text-decoration: #e67f4f;
+}
+
+
+.PostCon {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 600px;
+    padding: 3px;
+    margin-bottom: 20px;
+    /*background-color: #e67f4f;*/
+}
+.formCon{
+    display: flex;
+    flex-direction: row;
+}
+.PostInput {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 70px;
+    /*background-color: antiquewhite;*/
+}
+.PostInputText {
+    width: 400px;
+    height: 50px;
+    border: solid 3px #37578c;
+    border-radius: 10px;
+    resize: none;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    outline: none;
+}
+.postImgIcon {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 3px;
+    /*background-color: rebeccapurple;*/
+}
+.postImgIcon:hover {
+    cursor: pointer;
+}
+.nPostBtn {
+    width: 140px;
+    height: 40px;
+    background: #37578c;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "PingFangSC-Regular", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    text-align: center;
+    outline: none;
+}
+.nPostBtn:hover {
+    cursor: pointer;
+}
+.mediaCon {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    flex-wrap: wrap;
+}
+
+
+.LoginContainer{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*background: #e67f4f;*/
+}
+.LoginCon {
+    width: 392px;
+    height: 360px;
+    border: solid 1px #789dc9;
+    border-radius: 20px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.LoginHead {
+    /*background-color: #789dc9;*/
+}
+.LoginForm{
+    /*background-color: #e67f4f;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+
+}
+.LoginNPCon {
+    margin: 5px 0;
+    /*background-color: aqua;*/
+}
+.LoginInputCon {
+    margin: 5px;
+}
+.LoginInput {
+    display: block;
+    width: 280px;
+    height: 40px;
+    background: #F2F5F6;
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+    font-family: "PingFangSC-Regular";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    outline: none;
+    border: none;
+}
+.LoginBtn {
+    /*display: flex;*/
+    width: 250px;
+    height: 40px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #33548a, #e67f4f);
+    color: white;
+    font-family: "PingFangSC-Regular", serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19px;
+    outline: none;
+    margin: 5px 0;
+}
+.LoginBtn:hover {
+    cursor: pointer;
+}
+.LoginOptCon {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    /*background-color: #e67f4f;*/
+}
+.LoginRegCon {
+    text-align: center;
+    width: 100px;
+    padding: 5px;
+    border: solid 1px #33548a;
+    border-radius: 10px;
+    color: #33548a;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.TopNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaf2f2;
+    height: 60px;
+    padding: 5px;
+}
+.TopNavTitle:hover{
+    cursor: pointer;
+}
+.TopNavLeft{
+    display: flex;
+    flex-direction: row;
+    justify-self: self-end;
+    align-items: center;
+    /*background-color: #e67f4f;*/
+}
+.TopNavRightNameCon{
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+.TopNavName{
+    font-size: 23px;
+}
+.TopNavImg {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+.TopNavIcon{
+    margin: 0 20px;
+}
+.TopNavIcon:hover{
+    cursor: pointer;
+}
+.TopNavUntDownCon{
+    display: flex;
+    flex-direction: column;
+    /*background-color: #e67f4f;*/
+    /*float: left;;*/
+    /*display: none;*/
+}
+.TopNavUntDown{
+    position: absolute;
+    top: 50px;
+    display: none;
+}
+.TopNavUntDownCon:hover .TopNavUntDown{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    background-color: #eaf2f2;
+}
+.TopNavUntDownTitle{
+    padding: 3px;
+    font-size: 16px;
+}
+.TopNavUntDownTitle:hover{
+    background-color: #e67f4f;
+}
+
+
+.RegContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.RegCon{
+    width: 450px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px grey solid;
+    border-radius: 10px;
+
+}
+.RegForm{
+    margin-top: 30px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: #789dc9;*/
+}
+.RegForm div{
+    width: 400px;
+    margin: 5px 0;
+    /*background-color: #e67f4f;*/
+    padding: 3px;
+}
+.RegForm div label{
+    width: 80px;
+    color: #33548a;
+    text-align: right;
+    font-family: "PingFangSC-Medium";
+    margin-top: 15px;
+    margin-right: 15px;
+    display: inline-block;
+}
+.RegForm .RegFormInput{
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    outline: none;
+    background: #f2f5f6;
+    border-radius: 10px;
+    padding: 3px;
+    border: none;
+}
+.RegFormCheckCon{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    align-items: center;
+    /*justify-items: center;*/
+    justify-content: center;
+    /*background-color: #789dc9;*/
+}
+.RegFormCheck {
+    display: flex;
+    zoom: normal;
+}
+.RegFormCheckLabelCon{
+    display: flex;
+    font-size: 10px;
+}
+.RegFormBtn{
+    display: block;
+    width: 250px;
+    height: 40px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #33548a,#e67f4f);
+    margin: auto;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19px;
+    outline: none;
+}
+.RegFormBtn:hover{
+    cursor: pointer;
+}
+
+
+.mediaCon{
+    padding: 5px;
+    width: 500px;
+    /*background-color: #e67f4f;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
