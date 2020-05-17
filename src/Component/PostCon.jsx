@@ -39,7 +39,7 @@ export default class PostCon extends React.Component {
                     console.log('error');
                 }
             })
-            .catch(e => console.error(e))
+            .catch(e => {alert(e)});
     };
     handlePhotoClick = () => {
         let files = this.photo.current.files;
