@@ -1,6 +1,7 @@
 import React from 'react';
 import TopNav from "./TopNav.jsx";
 import axios from 'axios';
+import {withRouter} from "react-router";
 
 export default class Reg extends React.Component {
     constructor(props) {
@@ -31,13 +32,34 @@ class RegForm extends React.Component {
             psdCon: null,
             check: false,
             emailExist: true,
+            psdSame: true,
         }
     }
+    componentDidMount() {
+        console.log(this.props);
+    }
+
+    RegReturnData = (data) => {
+        if(data.state === 200){
+            if (data.data.success ===1 ){
+                this.props.history.push('/login');
+            }else if(data.data.success === 0){
+                alert("wrong");
+            }
+        }else{
+            alert("wrong");
+        }
+
+    }
+
+
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.state.check && !this.state.emailExist) {
             let data = {name: this.state.name, email: this.state.email, psd: this.state.psd, psdCon: this.state.psdCon};
-            axios.post('http://127.0.0.1:8000/signin/regist/', {data}).then(res => console.log(res)).catch(e => console.log(e))
+            axios.post('http://127.0.0.1:8000/signin/regist/', {data})
+            .then(res => this.RegReturnData(res))
+            .catch(e => console.log(e))
         } else {
             alert("请同意");
         }
@@ -63,6 +85,15 @@ class RegForm extends React.Component {
             .catch(e => console.log(e));
     };
 
+    psdConblur = () => {
+        if (this.state.psd === this.state.psdCon){
+            this.setState({psdSame: true});
+        }else{
+            this.setState({psdSame: false, psdCon: ''});
+        }
+
+    }
+
     render() {
         return (
             <form className='RegForm' onSubmit={this.handleSubmit}>
@@ -84,7 +115,10 @@ class RegForm extends React.Component {
                 <div id="password_again_div">
                     <label htmlFor="password_again">确认密码</label>
                     <input type="password" name="psdCon" className='RegFormInput' placeholder="请确认登陆密码"
-                           required="required" autoComplete="off" onChange={this.handleChange}/>
+                           required="required" autoComplete="off" onChange={this.handleChange} onBlur = {this.psdConblur}
+                    style={{"bordercolor": 'red'}}/>
+                    { !this.state.psdSame && <p>两次密码不匹配，请重申输入</p>}
+
                 </div>
                 <div className='RegFormCheckCon'>
                     <input type="checkbox" className="RegFormCheck" value={this.state.check}
@@ -104,3 +138,4 @@ class RegForm extends React.Component {
         )
     }
 }
+RegForm = withRouter(RegForm);
