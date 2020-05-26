@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route} from "react-router-dom";
-import styles from "../main.css";
 import {withRouter} from "react-router";
 import axios from "axios";
+axios.defaults.headers['token'] = localStorage.getItem('token');
 
 class TopNav extends React.Component {
     constructor(props) {
@@ -11,7 +11,6 @@ class TopNav extends React.Component {
     componentDidMount() {
     }
     topTitleClick = () => {
-        console.log('asd');
         this.props.history.push("/huche");
 
     }
@@ -42,6 +41,8 @@ class TopNavRight extends React.Component {
         super(props);
         this.state = {
             login: false,
+            name: '',
+            img:'',
         }
     }
 
@@ -49,7 +50,7 @@ class TopNavRight extends React.Component {
         axios.get("http://127.0.0.1:8000/signin/vertificationLog")
             .then(res => {
                 if (res.data.login) {
-                    this.setState({login: true})
+                    this.setState({login: true,name: res.data.data.name, img: res.data.data.img})
                 }
             })
             .catch(e => console.log(e));
@@ -59,13 +60,17 @@ class TopNavRight extends React.Component {
         this.props.history.push('/login');
 
     };
+    exitClick = () =>{
+        localStorage.removeItem('token');
+        this.props.history.push('/login');
+    }
 
     render() {
         return (
             <ul className='TopNavLeft'>
                 <div className='TopNavRightNameCon'>
-                    <img className='TopNavImg'/>
-                    <a className="TopNavName">{this.state.login ? "Chalres" : "游客"}</a>
+                    <img className='TopNavImg' src={'http://127.0.0.1:8000/media/' + this.state.img} />
+                    <a className="TopNavName">{this.state.login ? this.state.name : "游客"}</a>
                 </div>
                 <div className='TopNavUnt TopNavIcon TopNavUntDownCon '>
                     <svg width="25px" height="25px" viewBox="0 0 25 21">
@@ -80,11 +85,16 @@ class TopNavRight extends React.Component {
                             id="1" fill="#33548A" stroke="none"/>
                     </svg>
                     <div className='TopNavUntDown'>
-                        {this.state.login ?
-                            < div className='TopNavUntDownTitle'>设置</div>
-                            : < div className='TopNavUntDownTitle' onClick={this.handleLoginClock}>登陆</div>
-
-
+                        {
+                            this.state.login ?
+                            <ul className='TopNavUntDownTitle'>
+                                <li>设置</li>
+                                <li onClick={this.exitClick}>退出</li>
+                            </ul>
+                            : 
+                            <ul className='TopNavUntDownTitle'>
+                            <li  onClick={this.handleLoginClock}>登陆</li>
+                            </ul>
                         }
                     </div>
                 </div>

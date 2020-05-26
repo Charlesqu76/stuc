@@ -1,11 +1,20 @@
 const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+
 module.exports = {
-    entry: './src/index.js',
+    entry: './srcCar/index.js',
     output: {
-        filename: "[name].bundle.js",
+        filename: 'js/[name].[hash].min.js',
     },
-    mode: "development",
+    optimization: {
+        minimizer: [
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
+    mode: "production",
     module: {
         rules: [
             {
@@ -13,12 +22,20 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: "babel-loader",
+                },
             },
-        },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    {loader: MiniCssExtractPlugin.loader,
+                    options:{
+                        publicPath: '../'
+                    }},                
+                    {loader: 'css-loader'
+                    },
+                    
 
+              ] 
             },
             {
                 test: /\.(jpg|png|gif|bmp|jpeg)$/,
@@ -34,9 +51,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./srcCar/index.html",
             filename: "index.html"
         }),
+        new MiniCssExtractPlugin({
+           filename: "./css/[name].[hash].css",
+       })
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),

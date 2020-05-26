@@ -2,17 +2,27 @@ import React from 'react';
 import styles from "../main.css";
 import MediaCon from "./mediaCon.jsx";
 import axios from 'axios';
+import {withRouter} from "react-router";
+
+
 
 const baseUrl = 'http://127.0.0.1:8000';
 export default class Hc extends React.Component {
     constructor() {
         super();
     }
+    detailClick = () => {
+        let id = this.props.data.id;
+        let url = 'huche/'+ id;
+        this.props.history.push(url);
+    }
+
 
     render() {
+        console.log(this.props);
         let data = this.props.data;
         return (
-            <div className='HcCon'>
+            <div className='HcCon' id={data.id} onClick = {this.detailClick}>
                 <HcHead data={data.user} time={data.time}/>
                 <HcBodyCon cmt={data.content} media={data.media}/>
                 <HcDown id={data.id}/>
@@ -23,6 +33,7 @@ export default class Hc extends React.Component {
         )
     }
 }
+Hc = withRouter(Hc);
 
 class HcHead extends React.Component {
     constructor(props) {
@@ -53,7 +64,6 @@ class HcHead extends React.Component {
     };
 
     render() {
-        // this.converStrToDate(this.props.time);
         return (
             <div className="HcHeadCon componCon" style={styles.HcHeadCon}>
                 <div className='HcHeadImg'>
@@ -118,8 +128,6 @@ class HcDown extends React.Component {
     };
     handleCmtChange = (e) => {
         this.setState({cmt: e.target.value});
-
-
     };
 
 

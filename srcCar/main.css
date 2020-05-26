@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    text-decoration:none;
+    color:#333;
+    }
+
+.NavCon{
+    height: 40px;
+    background-color: antiquewhite;
+    background-image: url("./static/NavImg.png");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.funCon{
+    justify-self: flex-end;
+}
+.titleCon{
+    color: white;
+    font-size: 20px;
+    margin-left: 30px;
+}
+.funConUl{
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+}
+.funLi{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 3px;
+
+}
+.funLi img{
+    width: 20px;
+    height: 20px;
+
+}
+.funLi a{
+    color: white;
+    font-size: 15px;
+    margin-left: 3px;
+}
+.funLiMid{
+    border-left: white solid 1px;
+    border-right: white solid 1px;
+    padding: 3px;
+}
+.subNavCon{
+    height: 40px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.subNavCon ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.subNavCon ul li{
+    color: black;
+    font-size: 20px;
+    margin: 0 10px;
+}
+.active{
+    color: #1F497D;
+    padding-bottom: 3px;
+    font-weight: 900;
+    border-bottom: 4px solid #1F497D;
+
+}
+.quaryChoiceCon{
+    width: 100%;
+    height: 50px;
+    /* background-color: wheat; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.quaryChoiceCon div{
+    margin: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    /* background-color: lavender; */
+
+}
+.quaryChoiceCon div label{
+    color: black;
+    font-size: 18px;
+    margin-right: 5px;
+}
+.quaryChoiceCon div ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.shapeName{
+    width: 50px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 5px;
+    border: grey solid 1px;
+    border-radius: 5px;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
+}
+.shapeName:hover{
+    cursor: pointer;
+}
+.chosen{
+    border: #1F497D solid 2px;
+    
+
+}
+input[type = 'radio']{
+    display: none;
+}
+.tableCon{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.tableHeader{
+    margin-bottom: 10px;
+}
+.overViewTable tbody tr th{
+    font-weight: 900;
+    color: #1F497D;
+    min-width: 100px;
+    padding: 2px;
+    margin: 2px;
+}
+.overViewTable tbody tr td{
+    font-weight: 900;
+    color:black;
+    min-width: 100px;
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+}
+.AnaChoiceCom{
+    height: 50px;
+    /* background-color: cadetblue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.AndChoiceSubCon{
+    height: 30px;
+    /* background-color: red; */
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.AndChoiceSubCon label{
+    /* background-color: chartreuse; */
+    font-size: 18px;
+    padding: 2px;
+    margin: 0px 5px;
+}
+.AndChoiceSubCon select{
+    height: 25px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    border: grey solid 1px;
+    border-radius: 5px;
+    appearance: none;
+    outline: none;
+}
+.anaFirCon{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.mapCon{
+    margin: 0 20px;
+    width: 600px;
+}
+.lineCon{
+    width: 700px;
+}
+.anaSecCon{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.anaSecCon div{
+    margin: 0 20px;
+    width: 400px;
+}
+
+
+.cmpNavFir{
+    display: flex;
+    flex-direction: row;
+}
+
+.quaryBoxCon{
+    margin: 0px 10px;
+    display: flex;
+    flex-direction: row;
+}
+.quaryBoxCon label{
+    color: black;
+    font-size: 18px;
+    margin-right: 3px;
+}
+.quaryBoxCon .quaryBoxChice{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mulChoiceCon{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mulChoiceCon label{
+    padding: 0 10px;
+    font-size: 17px;
+
+}
+.mulChoice{
+    display: flex;
+    flex-direction: row;
+    border: solid 1px #D9D9D9;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+.mulchoice{
+    border: solid 1px #D9D9D9;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px 15px;
+    margin: 0px 5px;
+}
+.cmpBody div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+.sliderCon{
+    height: 40px;
+    width: 300px;
+    background-color: blanchedalmond;
+}
+.sliderCanvas{
+    height: 40px;
+    width: 300px;
+}
+.saleCon{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.saleCho{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 20px;
+}
+.saleCho div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 2px;
+}
+.saleChoFir{
+}
+.saleParaRemake{
+    justify-self: flex-end;
+    background-color: #1F497D;
+    border-radius: 5px·;
+    color: #ffffff;
+    padding: 1px 10px;
+}
+.saleParaRemake:hover{
+    cursor: pointer;
+}
+.saleParaRemake:active{
+    background-color: black;
+}
+
+.salebody{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+.salebody div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cmpBodySec div{
+    margin: 0 10px;
+}

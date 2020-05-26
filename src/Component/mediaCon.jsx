@@ -8,15 +8,12 @@ export default class MediaCon extends React.PureComponent {
     }
 
     componentDidMount() {
-        console.log(1);
         this.conDiv.current.innerHTML = '';
         this.createMediaCon(this.props.baseUrl, this.props.media);
     }
 
 
     componentDidUpdate(prevProps,) {
-        console.log(2);
-        console.log(this.props.media);
         this.conDiv.current.innerHTML = '';
         this.createMediaCon(this.props.baseUrl, this.props.media);
     }
