@@ -3,7 +3,7 @@ import Login from "./Component/Login.jsx";
 import Reg from "./Component/Reg.jsx";
 import HcCom from "./Component/HcCom.jsx";
 import webpage404 from './Component/404.jsx';
-import DetailPage from './Component/DetailPage.jsx'
+import DetailPage from './Component/DetailPage.jsx';
 import {HashRouter as Router, Redirect, Route, Switch} from "react-router-dom" ;
 
 

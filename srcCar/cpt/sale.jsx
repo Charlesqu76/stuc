@@ -3,10 +3,14 @@ import ChoiceCon from './cpt/ChoiceCon.jsx';
 import MulChoiceCon from './cpt/MulChoiceCon.jsx';
 import EBarHor from './echartCpt/ebarHor.jsx';
 import EBarHorSmall from './echartCpt/ebarHorSmall.jsx';
-import {Slider} from 'element-react';
+import { Slider } from 'rsuite';
+
 export default class Sale extends React.Component{
     constructor(props) {
         super(props);
+        this.state ={
+            value: [4, 8]
+        }
         
     }
 
@@ -23,10 +27,9 @@ export default class Sale extends React.Component{
                         <div className = 'saleChoFirRight'>
                             <button className ='saleParaRemake'>参数重制</button>
                         </div>
-
                     </div>
                     <div className = 'saleChoSec'>
-                        <Slider></Slider>
+                        <Slider />
                     </div>
                     <div className = 'saleChoThi'>
                         <MulChoiceCon/>

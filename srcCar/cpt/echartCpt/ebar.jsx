@@ -1,5 +1,5 @@
 import React from 'react';
-let echarts = require('echarts');
+import echarts from 'echarts/lib/echarts';
 
 export default class EBar extends React.Component{
     constructor(props) {

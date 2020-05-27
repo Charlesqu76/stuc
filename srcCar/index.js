@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import Nav from './cpt/nav.jsx';
 import NavSub from './cpt/navSub.jsx';
 import OverView from './cpt/overView.jsx';
-// import Ana from './cpt/ana.jsx';
-// import Cmp from './cpt/cmp.jsx';
-// import Sale from './cpt/sale.jsx';
+
 import {HashRouter as Router, Redirect, Route, Switch,} from "react-router-dom" ;
 
 const Ana = React.lazy(() => import('./cpt/ana.jsx'))
