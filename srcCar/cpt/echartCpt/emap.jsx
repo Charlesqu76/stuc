@@ -143,7 +143,6 @@ export default class EMap extends React.Component{
             for (var i = 0; i < data.length; i++) {
             yData.push(data[i].name);
             }
-
             let option = {
             title: {
                 text: '营销力得分全球分布',
@@ -173,8 +172,10 @@ export default class EMap extends React.Component{
                 textStyle: {
                     color: '#000'
                 },
-                left: 'left',
-                bottom: '20%',
+
+                left: '3%',
+                right: '90%',
+                bottom: '5%',
             },
             geo: {
                 roam: false,
@@ -182,6 +183,7 @@ export default class EMap extends React.Component{
                 left: '0%',
                 right: '0%',
                 top: '10%',
+                bottom: '0%',
                 layoutSize: '100%',
                 emphasis:{
                     itemStyle:{
@@ -218,11 +220,15 @@ export default class EMap extends React.Component{
             }]
             };
         myChart.setOption(option);
+        window.addEventListener("resize", function(){
+            myChart.resize();
+        })
     }
 
     render(){
+        console.log(document.querySelector("#"+ this.props.id))
         return(
-            <div id={this.props.id} style={{ width: 600, height: 600}}></div>
+            <div id={this.props.id} style={{ width: '100%', height: '100%'}}></div>
         )
     }
     

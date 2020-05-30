@@ -95,11 +95,14 @@ export default class ELine extends React.Component{
             ]
         };
         myChart.setOption(option);
+        window.addEventListener("resize", function(){
+            myChart.resize();
+        })
     }
 
     render(){
         return(
-            <div id={this.props.id} style={{ width: 700, height: 150}}></div>
+            <div id={this.props.id} style={{ width: '100%', height: '100%'}}></div>
         )
     }
     

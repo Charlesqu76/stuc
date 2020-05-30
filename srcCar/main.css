@@ -3,15 +3,23 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 a{
     text-decoration:none;
     color:#333;
-    }
+}
+table{
+    border-collapse: collapse;
+}
+table, tr, td, th{
+    border: 1px solid rgb(202, 198, 198);
+}
 
 .NavCon{
     height: 40px;
-    background-color: antiquewhite;
+    width: 100%;
+    min-width: 1000px;
     background-image: url("./static/NavImg.png");
     background-repeat: no-repeat;
     background-size:100% 100%;
@@ -21,15 +29,20 @@ a{
     justify-content: space-between;
     align-items: center;
 }
-
-.funCon{
-    justify-self: flex-end;
-}
 .titleCon{
+    width: 200px;
     color: white;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-left: 30px;
 }
+.titleCon:hover{
+    cursor: pointer;
+}
+.funCon{
+    width: 250px;
+    justify-self: flex-end;
+}
+
 .funConUl{
     display: flex;
     flex-direction: row;
@@ -49,7 +62,7 @@ a{
 }
 .funLi a{
     color: white;
-    font-size: 15px;
+    font-size: 1rem;
     margin-left: 3px;
 }
 .funLiMid{
@@ -57,16 +70,22 @@ a{
     border-right: white solid 1px;
     padding: 3px;
 }
+.funHelpCon:hover{
+    cursor: pointer;
+
+}
 .subNavCon{
+    min-width: 1000px;
     height: 40px;
+    width: 100%;
     background-color: #f2f2f2;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    
 }
 .subNavCon ul{
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -74,7 +93,9 @@ a{
 }
 .subNavCon ul li{
     color: black;
-    font-size: 20px;
+    width: 150px;
+    text-align: center;
+    font-size: 1.25rem;
     margin: 0 10px;
 }
 .active{
@@ -84,34 +105,176 @@ a{
     border-bottom: 4px solid #1F497D;
 
 }
-.quaryChoiceCon{
+
+.contentBody{
+    min-width: 1000px;
+
     width: 100%;
-    height: 50px;
-    /* background-color: wheat; */
+    height: 100%;
+    padding-bottom: 10px;
+    /* padding: 20px 0px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: tomato; */
+}
+.quaryChoiceCon{
+    width: 80%;
+    height: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-
 }
-.quaryChoiceCon div{
-    margin: 0px 10px;
+
+.overViewTableCon{
+    width: 80%;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
-    /* background-color: lavender; */
+    justify-content: center;
+}
+.overViewTable{
+    width: 100%;
+}
+.overViewTable tr th, .overViewTable tr td{
+    width: 10%;
+    text-align: center;
 
 }
-.quaryChoiceCon div label{
-    color: black;
-    font-size: 18px;
-    margin-right: 5px;
+.overViewTable tr th{
+    font-weight: 900;
+    color: #1F497D;
+    font-size: 1.125rem;
 }
-.quaryChoiceCon div ul{
+.overViewTable tr td{
+    font-weight: 500;
+    color:black;
+    font-size: 1rem;
+
+}
+.AnaChoiceCom{
+    height: 40px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.ChoiceCmpCon{
+    height: 30px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.125rem;
+
+}
+.ChoiceCmpCon label{
+    padding: 0 2px;
+    margin: 0px 5px;
+}
+.ChoiceCmpCon select{
+    width: 100px;
+    height: 25px;
     display: flex;
     flex-direction: row;
     justify-content: start;
+    align-items: center;
+    border: grey solid 1px;
+    border-radius: 5px;
+    appearance: none;
+    outline: none;
 }
 
+.anaBody{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.anaBody > div{
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.anaBody .anaFirCon{
+    display: flex;
+}
+.mapCon {
+    width: 49%;
+    height: 500px;
+}
+.lineCon{
+    height: 500px;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.lineCon div{
+    height: 33%;
+}
+
+.anaBody .anaSecCon{
+    margin-top: 10px;
+    height: 300px;
+}
+
+.anaSecCon > div{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cmpNav{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+}
+.cmpNav > div{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+
+}
+.cmpNav .cmpNavFir{
+    width: 50%;
+}
+.cmpNav .cmpNavSec{
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+
+.quaryBoxCon{
+    width: 300px;
+    margin: 0px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 1rem;
+}
+.quaryBoxCon label{
+    width: auto;
+    padding: 0px 5px;
+    color: black;
+    font-size: 1.125rem;
+    margin-right: 1px;
+}
+.quaryBoxCon .quaryBoxChice{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .shapeName{
     width: 50px;
     height: 20px;
@@ -122,135 +285,25 @@ a{
     padding: 2px 5px;
     border: grey solid 1px;
     border-radius: 5px;
-    font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
 }
 .shapeName:hover{
     cursor: pointer;
 }
 .chosen{
-    border: #1F497D solid 2px;
-    
-
-}
-input[type = 'radio']{
-    display: none;
-}
-.tableCon{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.tableHeader{
-    margin-bottom: 10px;
-}
-.overViewTable tbody tr th{
-    font-weight: 900;
-    color: #1F497D;
-    min-width: 100px;
-    padding: 2px;
-    margin: 2px;
-}
-.overViewTable tbody tr td{
-    font-weight: 900;
-    color:black;
-    min-width: 100px;
-    padding: 2px;
-    margin: 2px;
-    text-align: center;
-}
-.AnaChoiceCom{
-    height: 50px;
-    /* background-color: cadetblue; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-.AndChoiceSubCon{
-    height: 30px;
-    /* background-color: red; */
-    width: 200px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-}
-.AndChoiceSubCon label{
-    /* background-color: chartreuse; */
-    font-size: 18px;
-    padding: 2px;
-    margin: 0px 5px;
-}
-.AndChoiceSubCon select{
-    height: 25px;
-    font-size: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    border: grey solid 1px;
-    border-radius: 5px;
-    appearance: none;
-    outline: none;
-}
-.anaFirCon{
-    margin: 10px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.mapCon{
-    margin: 0 20px;
-    width: 600px;
-}
-.lineCon{
-    width: 700px;
-}
-.anaSecCon{
-    margin: 20px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.anaSecCon div{
-    margin: 0 20px;
-    width: 400px;
-}
-
-
-.cmpNavFir{
-    display: flex;
-    flex-direction: row;
-}
-
-.quaryBoxCon{
-    margin: 0px 10px;
-    display: flex;
-    flex-direction: row;
-}
-.quaryBoxCon label{
-    color: black;
-    font-size: 18px;
-    margin-right: 3px;
-}
-.quaryBoxCon .quaryBoxChice{
-    width: 250px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    border: #1F497D solid 1.5px;
 }
 
 .mulChoiceCon{
+
     width: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .mulChoiceCon label{
-    padding: 0 10px;
-    font-size: 17px;
+    padding: 0 5px;
+    font-size: 1rem;
 
 }
 .mulChoice{
@@ -258,57 +311,89 @@ input[type = 'radio']{
     flex-direction: row;
     border: solid 1px #D9D9D9;
     border-radius: 5px;
-    padding: 5px;
+    padding: 2px;
 
 }
-.mulchoice{
+.mulchoiceSingle{
     border: solid 1px #D9D9D9;
     border-radius: 5px;
-    font-size: 15px;
-    padding: 5px 15px;
+    font-size: 1rem;
+    padding: 2px 15px;
     margin: 0px 5px;
 }
-.cmpBody div{
+.mulchoiceSingle:hover{
+    cursor: pointer;
+}
+.mulchoiceSingleChosen{
+    border: solid 1.5px #1F497D;
+}
+.cmpBody{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cmpBody > div{
+    width: 98%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
     margin: 5px;
 }
-.sliderCon{
-    height: 40px;
-    width: 300px;
-    background-color: blanchedalmond;
+.cmpBodyFirSubCon{
+    width: 48%;
+    height: 250px;
 }
-.sliderCanvas{
-    height: 40px;
-    width: 300px;
+.cmpBodySecSubCon{
+    width: 48%;
+    height: 250px;
 }
-.saleCon{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.cmpBodyThiSubCon{
+    width: 95%;
+    height: 200px;
+
 }
+.cmpBodyForSubCon{
+    width: 95%;
+    height: 200px;
+}
+
+
 .saleCho{
+    width: 98%;
     display: flex;
     flex-direction: column;
-    margin: 5px 20px;
+    margin-bottom: 20px;
+    /* background-color: rosybrown; */
 }
-.saleCho div{
+.saleCho > div{
+    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 2px;
 }
-.saleChoFir{
+.saleCho .saleChoFir {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.saleChoFirLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.saleChoFirRight{
+    margin-left: 10px;
 }
 .saleParaRemake{
-    justify-self: flex-end;
+    height: 30px;
     background-color: #1F497D;
     border-radius: 5px·;
     color: #ffffff;
     padding: 1px 10px;
+    margin: 0px 40px;
 }
 .saleParaRemake:hover{
     cursor: pointer;
@@ -318,15 +403,81 @@ input[type = 'radio']{
 }
 
 .salebody{
-    align-self: center;
+    width: 98%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-.salebody div{
+.salebody > div{
+    width: 98%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+.salebodyFirSubCon{
+    width: 100%;
+}
+.salebodySecSubCon{
+    width: 100%;
+}
+
+
+
+.helpNav{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 900;
+    font-size: 1.25rem;
+    background-color: #F2F2F2;
+}
+
+.helpHeader{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.helpTableCon{
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.cmpBodySec div{
-    margin: 0 10px;
+.helpTable{
+    width: 100%;
 }
+
+.helptableHeader th{
+    background-color: #01A3DF;
+
+}
+
+.helptableBody td{
+    text-align: center;
+    width: 130px;
+}
+
+.sliderCon{
+    padding: 3px;
+    margin: 0px 10px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.SliderLabelName{
+    width: 100px;
+}
+

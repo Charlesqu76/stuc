@@ -138,11 +138,15 @@ export default class EBar extends React.Component{
             ]
         };
         myChart.setOption(option);
+        myChart.setOption(option);
+        window.addEventListener("resize", function(){
+            myChart.resize();
+        })
     }
 
     render(){
         return(
-            <div id={this.props.id} style={{ width: 400, height: 300}}></div>
+            <div id={this.props.id} style={{ width: "100%", height: "100%"}}></div>
         )
     }
     

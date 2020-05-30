@@ -9,7 +9,7 @@ export default class ChoiceCon extends PureComponent{
     render(){
         let data = this.props.data;
         return(
-            <div className = 'AndChoiceSubCon'>
+            <div className = 'ChoiceCmpCon'>
                     <label >{data.labelName}</label>
                     <select onChange = {this.handleChange} id= {data.conId}>
                         {data.choice.map(value => <option key= {value.id} value= {value.id} >{value.text}</option>)}

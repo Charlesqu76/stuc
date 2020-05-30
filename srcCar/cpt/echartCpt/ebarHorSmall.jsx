@@ -131,12 +131,16 @@ export default class EBarHorSmall extends React.Component{
             ]
         };
         myChart.setOption(option);
+        myChart.setOption(option);
+        window.addEventListener("resize", function(){
+            myChart.resize();
+        })
     }
 
     render(){
         return(
             <Fragment>
-                <div id={this.props.id} style={{ width: 450 , height: 200}}></div>
+                <div id={this.props.id} style={{ width: "100%" , height: "100%"}}></div>
 
             </Fragment>
             
