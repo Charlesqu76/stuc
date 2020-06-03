@@ -1,0 +1,9 @@
+.mediaCon{
+    padding: 5px;
+    width: 500px;
+    /*background-color: #e67f4f;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

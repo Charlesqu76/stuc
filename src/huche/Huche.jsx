@@ -1,7 +1,7 @@
 import TopNav from "../Component/topNav/TopNav.jsx";
 import React from 'react';
-import PostCon from "../Component/PostCon.jsx";
-import Hc from "../Component/Hc.jsx";
+import PostCon from "../Component/postCon/PostCon.jsx";
+import Hc from '../Component/hcCon/Hc.jsx';
 import axiso from 'axios';
 
 export default class HcCom extends React.Component {

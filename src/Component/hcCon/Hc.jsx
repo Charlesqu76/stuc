@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from "../main.css";
-import MediaCon from "./mediaCon.jsx";
+import './hcCon.css';
+import MediaCon from "../photoCon/mediaCon.jsx";
 import axios from 'axios';
 import {withRouter} from "react-router";
 

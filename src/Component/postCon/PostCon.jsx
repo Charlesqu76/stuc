@@ -1,6 +1,7 @@
 import React, {createRef} from 'react'
 import axios from 'axios'
-import MediaCon from "./mediaCon.jsx";
+import MediaCon from "../photoCon/mediaCon.jsx";
+import './postCon.css';
 
 export default class PostCon extends React.Component {
     constructor(props) {
