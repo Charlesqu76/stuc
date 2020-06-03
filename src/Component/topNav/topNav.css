@@ -1,0 +1,60 @@
+.TopNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaf2f2;
+    height: 60px;
+    padding: 5px;
+}
+.TopNavTitle:hover{
+    cursor: pointer;
+}
+.TopNavRight{
+    min-width: 180px;
+    width: 20%;   
+    justify-self: self-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.TopNavRightNameCon{
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+.TopNavImg {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+.TopNavLogRegCon{
+    min-width: 130px;
+}
+.TopNavLogRegCon a{
+    padding: 0px 10px;
+    font-size: 1.25rem;
+}
+.TopNavLogRegCon  a:hover{
+    cursor: pointer;
+    color:  #e67f4f;
+
+}
+.TopNavLog{
+    border-right: 1.5px black solid;
+
+}
+.TopNavIcon{
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+.TopNavIcon:hover{
+    cursor: pointer;
+}
+.TopNavHelpIcon{
+    width: 32px;
+}
+

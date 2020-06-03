@@ -1,5 +1,5 @@
 import React from 'react';
-import TopNav from "./TopNav.jsx";
+// import TopNav from "../Component/topNav/TopNav.jsx";
 
 
 export default class webpage404 extends React.Component{
@@ -9,7 +9,7 @@ export default class webpage404 extends React.Component{
     render(){
         return(
             <div>
-                <TopNav/>
+                {/* <TopNav/> */}
                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <header style= {{ fontSize: 50}}>
                         404

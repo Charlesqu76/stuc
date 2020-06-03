@@ -1,6 +1,5 @@
 import React from 'react'
-import TopNav from './TopNav.jsx'
-import Hc from './Hc.jsx'
+import Hc from '../Component/Hc.jsx'
 import axios from 'axios';
 
 const baseUrl = 'http://127.0.0.1:8000';

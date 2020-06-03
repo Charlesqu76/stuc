@@ -1,0 +1,86 @@
+
+.RegContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.RegCon{
+    background-color: #ffffff;
+    width: 450px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px grey solid;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #3d79e9;
+
+}
+.RegForm{
+    width: 95%;
+    margin-top: 30px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.RegForm div{
+    width: 96%;
+    margin: 3px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.RegForm div label{
+    width: 20%;
+    font-size: 1.125rem;
+    color: #33548a;
+    text-align: right;
+    margin-right: 5px;
+}
+.RegForm .RegFormInput{
+    width: 60%;
+    height: 30px;
+    font-size: 1.125rem;
+    outline: none;
+    background: #f2f5f6;
+    border-radius: 10px;
+    padding: 3px;
+    border: none;
+}
+.RegForm .RegFormCheckCon{
+    justify-content: center;
+}
+.RegFormCheck:hover{
+    cursor: pointer;
+}
+.RegFormCheckLabelCon{
+    font-size: 0.75rem;
+}
+.RegFormBtn{
+    width: 70%;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #33548a,#e67f4f);
+    margin: auto;
+    color: white;
+    font-size: 1rem;
+    line-height: 19px;
+}
+ 
+#password_again_div p{
+    margin: 0 auto;
+    padding: 0;
+    font-size: 10px;
+    color: red;
+    text-align: center;
+}
+.psdNotSame{
+    top: 10px;
+    color: red;
+    font-size: 0.5rem;
+}

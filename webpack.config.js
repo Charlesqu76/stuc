@@ -7,7 +7,7 @@ const webpack=require('webpack');    //引入webpack模块，ProvidePlugin是web
 
 
 module.exports = {
-    entry: './srcCar/index.js',
+    entry: './src/index.js',
     output: {
         filename: 'js/[name].[hash:7].min.js',
         chunkFilename: "js/[id].[chunkhash:7].chunk.js"
@@ -51,7 +51,7 @@ module.exports = {
               ] 
             },
             {
-                test: /\.(jpg|png|gif|bmp|jpeg)$/,
+                test: /\.(jpg|png|gif|bmp|jpeg|svg)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
