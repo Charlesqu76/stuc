@@ -1,25 +1,24 @@
 .PostCon {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 600px;
     padding: 3px;
     margin-bottom: 20px;
-    /*background-color: #e67f4f;*/
 }
 .formCon{
+    width: 96%;
     display: flex;
     flex-direction: row;
-}
-.PostInput {
-    display: flex;
     align-items: center;
-    justify-items: center;
-    height: 70px;
-    /*background-color: antiquewhite;*/
+}
+.PostDownCon{
+    width: 96%;
+
 }
 .PostInputText {
     width: 400px;
+    width: 70%;
     height: 50px;
     border: solid 3px #37578c;
     border-radius: 10px;
@@ -27,20 +26,23 @@
     font-size: 20px;
     margin: 5px;
     padding: 5px;
-    outline: none;
 }
 .postImgIcon {
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     width: 70px;
+    width: 13%;
     height: 70px;
     margin: 0 3px;
-    /*background-color: rebeccapurple;*/
+}
+.postImgIcon img{
+    width: 90%;
 }
 .postImgIcon:hover {
     cursor: pointer;
 }
+
 .nPostBtn {
     width: 140px;
     height: 40px;
@@ -53,6 +55,7 @@
     line-height: 25px;
     text-align: center;
     outline: none;
+    margin-left: 5px;
 }
 .nPostBtn:hover {
     cursor: pointer;

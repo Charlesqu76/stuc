@@ -16,7 +16,6 @@ export default class HcCom extends React.Component {
     render() {
         return (
             <div>
-                <TopNav user={true}/>
                 <div className='HcComBody'>
                     <PostCon/>
                     <HcList/>
@@ -50,7 +49,7 @@ class HcList extends React.Component{
     render() {
         return (
             <div>
-                {this.state.dataList.map((value) => <Hc key = {value.id} data = {value}/>)}
+                {this.state.dataList.map((value) => <Hc key = {value.id} data = {value} detail = {false}/>)}
             </div>
         );
     }

@@ -1,9 +1,16 @@
 .mediaCon{
-    padding: 5px;
-    width: 500px;
-    /*background-color: #e67f4f;*/
+    margin: 5px;
+    width: 96%;
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: royalblue;
 }
+.mediaCon img{
+    border-radius: 5px;
+}
+.mediaCon img:hover{
+    cursor: pointer;
+}
+

@@ -1,6 +1,7 @@
 import React from 'react'
 import Hc from '../Component/hcCon/Hc.jsx'
 import axios from 'axios';
+import TopNav from '../Component/topNav/TopNav.jsx';
 
 const baseUrl = 'http://127.0.0.1:8000';
 export default class DetailPage extends React.Component{
@@ -17,14 +18,10 @@ export default class DetailPage extends React.Component{
         .then(res => this.setState({data: res.data.data}))
         .catch(error => console.log(error))
     }
-    
-
     render(){
-        console.log(this.state.data);
         return(
             <div>
-              <TopNav user = {true}/> 
-              {this.state.data ? <Hc data = {this.state.data}/> : <></>}
+              {this.state.data ? <Hc data = {this.state.data} detail = {true}/> : <></>}
             </div>
         )
     }

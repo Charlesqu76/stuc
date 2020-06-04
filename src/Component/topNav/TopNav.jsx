@@ -1,21 +1,34 @@
 import React from "react";
+import "./topNav.css";
 import { Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import axios from "axios";
 axios.defaults.headers["token"] = localStorage.getItem("token");
 import titleIcon from "../../static/titleIcon.svg";
 import helpIcon from "../../static/helpIcon.svg";
-import "./topNav.css";
+import defaultUserImg from "../../static/defaultUserImg.svg";
+import { baseUrl } from "../../constVar.js";
 
-class TopNav extends React.Component {
+class TopNav extends React.PureComponent {
   constructor(props) {
     super(props);
+    this.state = {
+      showUser: false,
+    };
   }
-  componentDidMount() {}
-  topTitleClick = () => {
+  componentDidMount() {
+    {
+      localStorage.getItem("token")
+        ? this.setState({ showUser: true })
+        : this.setState({ showUser: false });
+    }
+  }
+  topTitleClick = (e) => {
     this.props.history.push("/huche");
+    e.stopPropagation();
   };
   render() {
+    console.log("nav con");
     return (
       <div className="TopNav">
         <div className="TopNavTitle" onClick={this.topTitleClick}>
@@ -38,7 +51,7 @@ class TopNavRight extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://127.0.0.1:8000/signin/vertificationLog")
+      .get(baseUrl + "/signin/vertificationLog")
       .then((res) => {
         if (res.data.login) {
           this.setState({
@@ -54,7 +67,7 @@ class TopNavRight extends React.Component {
   handleLoginClock = () => {
     this.props.history.push("/login");
   };
-  
+
   handleRegClock = () => {
     this.props.history.push("/reg");
   };
@@ -71,7 +84,11 @@ class TopNavRight extends React.Component {
             <>
               <img
                 className="TopNavImg"
-                src={"http://127.0.0.1:8000/media/" + this.state.img}
+                src={
+                  this.state.img === ""
+                    ? defaultUserImg
+                    : "http://127.0.0.1:8000/media/" + this.state.img
+                }
               />
               <a className="TopNavName">{this.state.name}</a>
             </>
