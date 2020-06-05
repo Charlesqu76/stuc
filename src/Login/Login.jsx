@@ -14,7 +14,6 @@ export default class Login extends React.Component {
   render() {
     return (
       <Fragment>
-        <TopNav user={false} />
         <div className="LoginContainer">
           <div className="LoginCon">
             <div className="LoginHead">
@@ -91,7 +90,6 @@ class LoginForm extends React.Component {
               placeholder="用户名"
               required="required"
               onChange={this.handleChange}
-              autoComplete="off"
             />
           </div>
           <div className="LoginPsd LoginInputCon">

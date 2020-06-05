@@ -16,7 +16,7 @@ export default class Hc extends React.Component {
   }
   detailClick = () => {
     let id = this.props.data.id;
-    let url = "huche/" + id;
+    let url = `/huche/${id}`;
     this.props.history.push(url);
   };
 
@@ -98,17 +98,18 @@ class HcDown extends React.Component {
   };
   subClickHandle = () => {
     this.setState({ cmtShow: false });
-
+    let id = localStorage.getItem('token').split('.?')[0];
     let data = new FormData();
     data.append("cmt", this.state.cmt);
-    data.append("userId", 1);
+    data.append("userId", id);
     data.append("hucheId", this.props.id);
     hcCmt(data);
   };
   handleClickLike = () => {
+    let id = localStorage.getItem('token').split('.?')[0];
     let data = new FormData();
     data.append("hucheId", this.props.id);
-    data.append("userId", 1);
+    data.append("userId", id);
     hcLike(data);
   };
   handleCmtChange = (e) => {

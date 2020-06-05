@@ -21,3 +21,19 @@ export function hcCmt(data){
         console.error(e);
       });
 }
+
+//匿名发布胡扯
+export function hc(data, fun){
+  let postUrl = `${baseUrl}/huche/postHuche/`;
+  
+  axios
+      .post(postUrl, data)
+      .then((res) => {
+        fun(res);
+
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+
+}

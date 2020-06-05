@@ -4,24 +4,18 @@ import axios from "axios";
 import { withRouter } from "react-router";
 import { baseUrl } from "../constVar.js";
 import "./regist.css";
-export default class Reg extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    console.log(baseUrl);
-    return (
-      <div>
-        <TopNav user={false} />
-        <div className="RegContainer">
-          <div className="RegCon">
-            <RegForm />
-          </div>
-        </div>
+export default Reg;
+function Reg(){
+  return(
+    <div>
+    <div className="RegContainer">
+      <div className="RegCon">
+        <RegForm />
       </div>
-    );
-  }
+    </div>
+  </div>
+  )
+
 }
 
 class RegForm extends React.Component {

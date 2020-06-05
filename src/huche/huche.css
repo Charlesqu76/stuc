@@ -1,0 +1,15 @@
+
+.HcTotalCon{
+    background-color: aliceblue;
+}
+.HcLoadingCon{
+    background-color:#e7e6e6;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px white;
+    height: 30px;
+
+}
+.HcLoadingCon p{
+    font-size: 1.25rem;
+}

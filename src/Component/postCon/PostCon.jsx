@@ -1,10 +1,9 @@
 import React, { createRef, Fragment } from "react";
-import axios from "axios";
 import MediaCon from "../photoCon/mediaCon.jsx";
-import { baseUrl } from "../../constVar.js";
 import photoIcon from "../../static/photoIcon.svg";
 import videoIcon from "../../static/videoIcon.svg";
 import "./postCon.css";
+import { hc } from "../../requestFiles/huche.js";
 export default class PostCon extends React.Component {
   constructor(props) {
     super(props);
@@ -29,28 +28,30 @@ export default class PostCon extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData();
-    formData.append("userId", "6");
-    formData.append("cmt", this.state.cmt);
-    for (let i = 0; i < this.photo.current.files.length; i++) {
-      formData.append("photo", this.photo.current.files[i]);
-    }
-    axios
-      .post(baseUrl + "/huche/postHuche/", formData)
-      .then((res) => {
-        if (res.status === 200 && res.data.success === 1) {
-          this.setState({ cmt: "", media: "", videoUrl: "" });
+    if (localStorage.getItem("token")) {
+      let id = localStorage.getItem("token").split(".?")[0];
+      formData.append("userId", id);
+      formData.append("cmt", this.state.cmt);
+      for (let i = 0; i < this.photo.current.files.length; i++) {
+        formData.append("photo", this.photo.current.files[i]);
+      }
+      hc(formData, (value) => {
+        if (value.status === 200 && value.data.success === 1) {
+          console.log('success');
         } else {
           console.log("error");
         }
-      })
-      .catch((e) => {
-        alert(e);
+        console.log(value);
       });
+    } else {
+      alert("请登录");
+    }
+    this.setState({ cmt: "", media: "", videoUrl: "" });
   };
 
   // promise 异步加载图片
   loadImgAsync = (id, file) => {
-    return new Promise((resolve, reject) =>{
+    return new Promise((resolve, reject) => {
       let read = new FileReader();
       read.readAsDataURL(file);
       let mediaObj = {};
@@ -59,8 +60,7 @@ export default class PostCon extends React.Component {
         mediaObj.photo_video = e.target.result;
         resolve(mediaObj);
       };
-    })
-    
+    });
   };
   handlePhotoClick = () => {
     let files = this.photo.current.files;
@@ -70,7 +70,7 @@ export default class PostCon extends React.Component {
       photoPromises.push(this.loadImgAsync(i, files[i]));
     }
     Promise.all(photoPromises).then((value) => {
-      this.setState({media: [...this.state.media, ...value]})
+      this.setState({ media: [...this.state.media, ...value] });
     });
   };
 
@@ -140,7 +140,7 @@ export default class PostCon extends React.Component {
             />
           )}
           {this.state.media.length ? (
-            <MediaCon media={this.state.media} baseUrl="" />
+            <MediaCon media={this.state.media} />
           ) : (
             <></>
           )}

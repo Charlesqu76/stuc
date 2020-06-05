@@ -7,6 +7,10 @@
     height: 60px;
     padding: 5px;
 }
+.TopNavTitle{
+    width: 230px;
+}
+
 .TopNavTitle:hover{
     cursor: pointer;
 }
@@ -27,12 +31,53 @@
 .TopNavName{
     font-size: 1.25rem;
 }
-.TopNavImg {
+.TopNavImgCon{
     width: 45px;
     height: 45px;
-    border-radius: 100%;
     margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+.TopNavImg {
+    width: 96%;
+    height: 96%;
+    border-radius: 100%;
+}
+.TopNavImgCon:hover{
+    cursor: pointer;
+}
+.TopNavImgCon:hover .TopNavImgDown{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.TopNavImgDown{
+    width: 100px;
+    background-color:#eaf2f2;
+    box-shadow: 2px 2px 2px whitesmoke;
+    display: none;
+    position: absolute;
+    top: 100%;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px;
+}
+.TopNavImgDown li{
+    display: block;
+    width: 100%;
+
+}
+.TopNavImgDown li a{
+    display: block;
+    width: 100%;
+}
+.TopNavImgDown li a:hover{
+    background-color: wheat;
+}
+
 .TopNavLogRegCon{
     min-width: 130px;
 }
@@ -43,7 +88,6 @@
 .TopNavLogRegCon  a:hover{
     cursor: pointer;
     color:  #e67f4f;
-
 }
 .TopNavLog{
     border-right: 1.5px black solid;
