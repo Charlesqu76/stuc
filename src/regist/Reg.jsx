@@ -167,7 +167,7 @@ class RegForm extends React.Component {
         <div>
           <div>
             <input
-              disabled
+              
               type="submit"
               className="RegFormBtn"
               style={{

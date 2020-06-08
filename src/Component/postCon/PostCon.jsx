@@ -4,6 +4,7 @@ import photoIcon from "../../static/photoIcon.svg";
 import videoIcon from "../../static/videoIcon.svg";
 import "./postCon.css";
 import { hc } from "../../requestFiles/huche.js";
+import Hc from "../hcCon/Hc.jsx";
 export default class PostCon extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,7 @@ export default class PostCon extends React.Component {
       cmt: "",
       videoUrl: "",
       media: [],
+      reserveDate: null,
     };
     this.photo = createRef();
     this.video = createRef();
@@ -35,13 +37,13 @@ export default class PostCon extends React.Component {
       for (let i = 0; i < this.photo.current.files.length; i++) {
         formData.append("photo", this.photo.current.files[i]);
       }
+
       hc(formData, (value) => {
         if (value.status === 200 && value.data.success === 1) {
-          console.log('success');
+          this.props.getData(value.data.data);
         } else {
-          console.log("error");
+          console.error("error");
         }
-        console.log(value);
       });
     } else {
       alert("请登录");
@@ -62,6 +64,7 @@ export default class PostCon extends React.Component {
       };
     });
   };
+  //获得照片url
   handlePhotoClick = () => {
     let files = this.photo.current.files;
     let photoLength = files.length;
@@ -75,7 +78,6 @@ export default class PostCon extends React.Component {
   };
 
   render() {
-    console.log("post con");
     return (
       <div className="PostCon">
         <form
@@ -140,7 +142,7 @@ export default class PostCon extends React.Component {
             />
           )}
           {this.state.media.length ? (
-            <MediaCon media={this.state.media} />
+            <MediaCon media={this.state.media} baseUrl="" />
           ) : (
             <></>
           )}

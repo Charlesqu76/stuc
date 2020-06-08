@@ -1,69 +1,45 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import "./hcCon.css";
 import MediaCon from "../photoCon/mediaCon.jsx";
-import axios from "axios";
-import { withRouter } from "react-router";
+import { useHistory } from "react-router";
 import likeIcon from "../../static/likeIcon.svg";
-import likeIconActive from "../../static/likeIconActive.svg";
 import watchIcon from "../../static/watchIcon.svg";
 import cmtIcon from "../../static/cmtIcon.svg";
+import defaultUserImg from "../../static/defaultUserImg.svg";
 import { baseUrl } from "../../constVar.js";
-import { hcLike, hcCmt } from "../../requestFiles/huche.js";
+import { converStrToDate } from "../../utility.js";
 
-export default class Hc extends React.Component {
-  constructor() {
-    super();
-  }
-  detailClick = () => {
-    let id = this.props.data.id;
+export default Hc;
+function Hc(props) {
+  let { data } = props;
+  let history = useHistory();
+  let detailClick = () => {
+    let id = data.id;
     let url = `/huche/${id}`;
-    this.props.history.push(url);
+    history.push(url);
   };
-
-  render() {
-    let data = this.props.data;
-    return (
-      <div
-        className="HcCon"
+  return (
+    <div className="HcCon" id={data.id} onClick={detailClick}>
+      <HcHead data={data.user} time={data.time} />
+      <HcBodyCon cmt={data.content} media={data.media} />
+      <HcDown
         id={data.id}
-        onClick={this.props.detail ? null : this.detailClick}
-      >
-        <HcHead data={data.user} time={data.time} />
-        <HcBodyCon cmt={data.content} media={data.media} />
-        <HcDown id={data.id} detail={this.props.detail} />
-        {this.props.detail ? <LikeCon like={data.huche_like} /> : null}
-        {this.props.detail ? <HcCmt cmt={data.huche_Comment} /> : null}
-      </div>
-    );
-  }
+        hcLikeLen={data.huche_like}
+        hcCommentLen={data.huche_Comment}
+        watch={data.watch}
+      />
+    </div>
+  );
 }
-Hc = withRouter(Hc);
-
-// 转换时间
-let converStrToDate = (strDate) => {
-  strDate = new Date(strDate.replace(/(\..*)/g, "")).getTime();
-  let date = new Date().getTime();
-  let second = (date - strDate) / 1000;
-  let str = "";
-  if (Math.abs(second / 60) < 1) {
-    str = second + "秒前";
-  } else if (Math.abs(second / 60 / 60) < 1) {
-    str = Math.round(second / 60) + "分前";
-  } else if (Math.abs(second / 60 / 60 / 24) < 1) {
-    str = Math.round(second / 60 / 60) + "小时前";
-  } else if (Math.abs(second / 60 / 60 / 24 / 30) < 1) {
-    str = Math.round(second / 60 / 60 / 24) + "天前";
-  } else if (Math.abs(second / 60 / 60 / 24 / 30 / 12) < 1) {
-    str = Math.round(second / 60 / 60 / 24 / 30) + "月前";
-  }
-  return str;
-};
 
 function HcHead(props) {
   return (
     <div className="HcHeadCon componCon">
       <div className="HcHeadImgCon">
-        <img src={baseUrl + props.data.img} className="HcHeadImg" />
+        <img
+          src={props.data.img ? baseUrl + props.data.img : defaultUserImg}
+          className="HcHeadImg"
+        />
       </div>
       <div className="HcHeadNTCon">
         <a className="HcHeadName">{props.data.name}</a>
@@ -89,7 +65,7 @@ class HcDown extends React.Component {
     super();
     this.state = {
       cmtShow: false,
-      cmt: "",
+      cmt: null,
     };
   }
 
@@ -98,19 +74,24 @@ class HcDown extends React.Component {
   };
   subClickHandle = () => {
     this.setState({ cmtShow: false });
-    let id = localStorage.getItem('token').split('.?')[0];
-    let data = new FormData();
-    data.append("cmt", this.state.cmt);
-    data.append("userId", id);
-    data.append("hucheId", this.props.id);
-    hcCmt(data);
+    console.log("adf");
+    this.setState({ cmt: null });
+    this.props.recCmtFun(this.state.cmt);
+    // let id = localStorage.getItem("token").split(".?")[0];
+    // let data = new FormData();
+    // data.append("cmt", this.state.cmt);
+    // data.append("userId", id);
+    // data.append("hucheId", this.props.id);
+    // hcCmt(data);
   };
   handleClickLike = () => {
-    let id = localStorage.getItem('token').split('.?')[0];
+    let id = localStorage.getItem("token").split(".?")[0];
     let data = new FormData();
     data.append("hucheId", this.props.id);
     data.append("userId", id);
-    hcLike(data);
+    hcLike(data, (value) => {
+      this.props.recLikeFun(value.data.like);
+    });
   };
   handleCmtChange = (e) => {
     this.setState({ cmt: e.target.value });
@@ -120,20 +101,18 @@ class HcDown extends React.Component {
     return (
       <>
         <div className="HcDownCon componCon">
-          {this.props.detail ? null : (
-            <div className="HcIconCon ">
-              <img src={watchIcon} className="HcIcon" />
-              <a>20</a>
-            </div>
-          )}
+          <div className="HcIconCon ">
+            <img src={watchIcon} className="HcIcon" />
+            <a>{this.props.watch ? this.props.watch : null}</a>
+          </div>
 
           <div className="HcIconCon HcLikeIcon" onClick={this.handleClickLike}>
             <img src={likeIcon} className="HcIcon" />
-            {this.props.detail ? null : <a>20</a>}
+            <a>{this.props.hcLikeLen ? this.props.hcLikeLen : null}</a>
           </div>
           <div className="HcIconCon " onClick={this.clickHandle}>
             <img src={cmtIcon} className="HcIcon" />
-            {this.props.detail ? null : <a>20</a>}
+            <a>{this.props.hcCommentLen ? this.props.hcCommentLen : null}</a>
           </div>
         </div>
         {this.state.cmtShow && (
@@ -149,60 +128,6 @@ class HcDown extends React.Component {
           </div>
         )}
       </>
-    );
-  }
-}
-
-function LikeCon(props) {
-  return (
-    <Fragment>
-      {props.like.length !== 0 && (
-        <div className="LikeShowCon componCon">
-          <div className="likeShowIconCon HcIcon">
-            <img src={likeIconActive} />
-          </div>
-          {props.like.map((value) => (
-            <a key={value.user.id} className="likeShowName">
-              {value.user.name}
-            </a>
-          ))}
-        </div>
-      )}
-    </Fragment>
-  );
-}
-
-class HcCmt extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let cmtList = this.props.cmt;
-    return (
-      <Fragment>
-        {cmtList.length ? (
-          <div className="componCon">
-            {cmtList.map((value) => {
-              return (
-                <div className="HcCmtCon">
-                  <div className="HcCmtUserImgCon">
-                    <img
-                      src={baseUrl + value.commenter.img}
-                      className="HcCmtUserImg"
-                    />
-                  </div>
-                  <div className="HcCmtTextCon">
-                    <p>{value.content}</p>
-                    <div className = 'HcCmtTextIconCon'> 
-                      <img src={cmtIcon} width="20px" height="20px" />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : null}
-      </Fragment>
     );
   }
 }

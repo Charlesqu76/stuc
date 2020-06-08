@@ -1,0 +1,62 @@
+
+.LikeShowCon{
+    display: flex;
+    flex-direction: row;
+}
+.likeShowIconCon{
+    width: 30px;
+    height: 30px;
+}
+.likeShowIconCon img{
+    width: 100%;
+    height: 100%;
+}
+.likeShowName {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    /* background-color: rebeccapurple; */
+    margin: 0 3px;
+}
+
+.HcCmtCon{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1px;
+
+}
+
+.HcCmtUserImgCon{
+    width: 30px;
+    height: 30px;
+    padding-right: 5px;
+
+}    
+.HcCmtUserImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.HcCmtTextCon{
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.HcCmtTextIconCon{
+    height: 100%;
+    width: 20px;
+    display: flex;
+    align-items: center;
+}
+.HcCmtTextIconCon img{
+    display: none;
+}
+
+.HcCmtTextCon:hover  .HcCmtTextIconCon img{
+    display: block ;
+}

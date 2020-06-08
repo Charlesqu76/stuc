@@ -7,46 +7,57 @@ import "./huche.css";
 import { useParams, useLocation, useHistory } from "react-router";
 
 function HcCom() {
+  document.title = "胡扯";
+  const [data, setData] = useState(null);
+  let getData = (data) => {
+    setData(data);
+  };
   return (
     <Fragment>
       <div className="HcComBody">
-        <PostCon />
-        <HcList />
+        <PostCon getData={getData} />
+        <HcList data={data} />
       </div>
     </Fragment>
   );
 }
 export default HcCom;
 
-function HcList() {
-  let [dataList, setDataList] = useState([]);
-  let location = useLocation();
-  console.log(location);
-  let pageNum = location.search.match(/page=(\d+)/)[1];
-  let url = `${baseUrl}/huche?page=${pageNum}`;
+function HcList(props) {
+  const [dataList, setDataList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  let url = `${baseUrl}/huche`;
   let hcScrollEvent = (node) => {
-    if (node.getBoundingClientRect().top < window.innerHeight) {
-      console.log("see");
+    if (
+      (node.getBoundingClientRect().top < window.innerHeight) &
+      (node.getBoundingClientRect().top !== 0)
+    ) {
+      setPage(page + 1);
     }
   };
-
   useEffect(() => {
-    let loading = document.querySelector(".HcLoadingCon");
-    window.addEventListener("scroll", () => hcScrollEvent(loading));
-    axiso
-      .get(url)
-      .then((res) => {
-        if (res.status === 200 && res.data) {
-          let arr = [...res.data.data];
-          setDataList([...dataList, ...arr]);
-          console.log(arr);
-        }
-      })
-      .catch((e) => console.error(e));
-    return () => {
-      window.addEventListener("scroll", () => hcScrollEvent(loading));
-    };
-  }, [setDataList]);
+    if (loading) {
+      axiso
+        .get(url, { params: { page: page } })
+        .then((res) => {
+          if (res.status === 200 && res.data) {
+            let arr = [...res.data.data];
+            if (arr.length < 10) {
+              setDataList([...dataList, ...arr]);
+            } else {
+              setDataList([...dataList, ...arr]);
+            }
+          }
+        })
+        .catch((e) => console.error(e));
+    }
+  }, []);
+  useEffect(()=>{
+    {
+      props.data ? setDataList([props.data, ...dataList]) : null;
+    }
+  }, [props.data])
   return (
     <div>
       <div className="HcTotalCon">
@@ -54,9 +65,13 @@ function HcList() {
           <Hc key={value.id} data={value} detail={false} />
         ))}
       </div>
-      <div className="HcLoadingCon">
-        <p>加载更多...</p>
-      </div>
+      {loading ? (
+        <div className="HcLoadingCon">
+          <p>加载更多...</p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

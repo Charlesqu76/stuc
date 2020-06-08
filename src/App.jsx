@@ -6,7 +6,12 @@ import Webpage404 from "./404/404.jsx";
 import DetailPage from "./detailPage/DetailPage.jsx";
 import TopNav from "./Component/topNav/TopNav.jsx";
 import Center from "./center/Center.jsx";
-import { HashRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 export default function App() {
   return (
@@ -30,7 +35,7 @@ export default function App() {
             <Center />
           </Route>
           <Route path="/" exact>
-            <Redirect to ='/huche'/>
+            <Redirect to="/huche" />
           </Route>
           <Route path="*">
             <Webpage404 />

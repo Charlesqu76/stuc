@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Hc from "../Component/hcCon/Hc.jsx";
+import HcDetail from "../Component/hcDetail/HcDetail.jsx";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { baseUrl } from "../constVar.js";
@@ -16,7 +16,7 @@ function DetailPage() {
   }, []);
   return (
     <div>
-      {data ? <Hc data={data} detail={true} /> : <></>}
+      {data ? <HcDetail data={data}/> : <></>}
     </div>
   );
 }
