@@ -18,13 +18,22 @@
     /* background-color: rebeccapurple; */
     margin: 0 3px;
 }
+.HcCon .cmtCon{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
 .HcCmtCon{
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-top: 1px;
+    margin: 3px 0px;
+    padding: 2px;
 
+}
+.HcSubCmtCon{
+    width: 95%;
 }
 
 .HcCmtUserImgCon{
@@ -60,3 +69,36 @@
 .HcCmtTextCon:hover  .HcCmtTextIconCon img{
     display: block ;
 }
+
+.SubCmtCon {
+    background-color: aqua;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+.SubCmtInput {
+    width: 430px;
+    height: 25px;
+    font-size: 18px;
+    resize: none;
+    border-radius: 5px;
+    padding: 1px;
+    border: #33548a 2px solid;
+    outline: none;
+}
+.SubCmtBtn {
+    outline: none;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #37578c;
+    color: #ffffff;
+    width: 60px;
+    height: 30px;
+    margin-left: 5px;
+}
+.SubCmtBtn:hover {
+    cursor: pointer;
+}
+

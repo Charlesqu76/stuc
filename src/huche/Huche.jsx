@@ -4,8 +4,9 @@ import Hc from "../Component/hcCon/Hc.jsx";
 import axiso from "axios";
 import { baseUrl } from "../constVar.js";
 import "./huche.css";
-import { useParams, useLocation, useHistory } from "react-router";
+import { eleIsVisiable } from "../utility.js";
 
+export default HcCom;
 function HcCom() {
   document.title = "胡扯";
   const [data, setData] = useState(null);
@@ -21,43 +22,52 @@ function HcCom() {
     </Fragment>
   );
 }
-export default HcCom;
 
 function HcList(props) {
   const [dataList, setDataList] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   let url = `${baseUrl}/huche`;
-  let hcScrollEvent = (node) => {
-    if (
-      (node.getBoundingClientRect().top < window.innerHeight) &
-      (node.getBoundingClientRect().top !== 0)
-    ) {
-      setPage(page + 1);
-    }
-  };
   useEffect(() => {
+    let HcLoadingCon = document.querySelector(".HcLoadingCon");
+    let watchBounding = () => {
+      if (eleIsVisiable(HcLoadingCon)) {
+        setPage(page + 1);
+        window.removeEventListener("scroll", watchBounding);
+        console.log("visiable");
+      } else {
+        console.log("invisiable");
+      }
+    };
     if (loading) {
+      window.addEventListener("scroll", watchBounding);
       axiso
         .get(url, { params: { page: page } })
         .then((res) => {
           if (res.status === 200 && res.data) {
             let arr = [...res.data.data];
-            if (arr.length < 10) {
+            if (arr.length) {
               setDataList([...dataList, ...arr]);
-            } else {
-              setDataList([...dataList, ...arr]);
+              if (arr.length < 10) {
+                setLoading(false);
+                window.removeEventListener("scroll", watchBounding);
+              } else {
+              }
             }
           }
         })
         .catch((e) => console.error(e));
     }
-  }, []);
-  useEffect(()=>{
+    return () => {
+      window.removeEventListener("scroll", watchBounding);
+    };
+  }, [page]);
+
+  useEffect(() => {
     {
       props.data ? setDataList([props.data, ...dataList]) : null;
     }
-  }, [props.data])
+  }, [props.data]);
   return (
     <div>
       <div className="HcTotalCon">

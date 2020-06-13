@@ -36,7 +36,6 @@ function TopNavRight() {
       setLogin(true);
     }
     topNavVer((value) => {
-      console.log(value);
       if (value.data.login === 1) {
         setName(value.data.data.name);
         setImg(value.data.data.img);

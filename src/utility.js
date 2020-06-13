@@ -18,3 +18,28 @@ export let converStrToDate = (strDate) => {
   return str;
 };
 
+//判断是否是窗口内
+export function eleIsVisiable(ele, partiallyVisible = true){
+  const { top, left, bottom, right } = ele.getBoundingClientRect();
+  const { innerHeight, innerWidth } = window;
+  return partiallyVisible
+        ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+        ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+}
+
+//是否登陆
+export function isLogin(){
+  const token = localStorage.getItem('token');
+  return token ? token : false
+}
+
+
+//查找制定祖辈的id
+export const findId = (ele, findCls) =>{
+     if ($(ele).attr('class').includes(findCls)){
+       return $(ele).attr('id')
+     }else{
+       return findId($(ele).parent(),findCls)
+     }
+}

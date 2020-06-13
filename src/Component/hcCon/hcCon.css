@@ -95,34 +95,4 @@
 
 
 
-.SubCmtCon {
-    /*background-color: aqua;*/
-    height: 30px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.SubCmtInput {
-    width: 430px;
-    height: 25px;
-    font-size: 18px;
-    resize: none;
-    border-radius: 5px;
-    padding: 1px;
-    border: #33548a 2px solid;
-    outline: none;
-}
-.SubCmtBtn {
-    outline: none;
-    font-size: 20px;
-    border-radius: 5px;
-    background: #37578c;
-    color: #ffffff;
-    width: 60px;
-    height: 30px;
-    margin-left: 5px;
-}
-.SubCmtBtn:hover {
-    cursor: pointer;
-}
 
