@@ -1,0 +1,52 @@
+.cenInfoCon{
+    margin-top: 30px;
+    /* background-color: skyblue; */
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    width: 400px;
+}
+.cenInfoCon > div{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+    width: 90%;
+}
+
+.cenInfoCon p{
+    font-size: 1.25rem;
+    height: 30px;
+    line-height: 30px;
+}
+.cenInfoLabelCon{
+    /* background-color: aqua; */
+    width: 100px;
+    width: 30%;
+}
+.cenInfoVCon{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: beige; */
+}
+.cenInfoVNameInput{
+    width: 80%;
+    height: 60%;
+}
+.cenInfoVChangeNameIconCon{
+    width: 30px;
+    height: 30px;
+}
+.cenInfoVChangeNameIconCon > img{
+    width: 100%;
+    height: 100%;
+}
+.cenInfoVChangeNameIconCon > img:hover{
+    cursor: pointer;
+}
+.cenInfoSchoolInput{
+    width: 80%;
+    height: 60%;
+}
+

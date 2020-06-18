@@ -5,12 +5,28 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: royalblue;
 }
-.mediaCon img{
+.singleImgConDiv{
+    position: relative;
+    margin: 1px;
+    padding: 1px;
+    background-color: white;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid silver;
     border-radius: 5px;
 }
-.mediaCon img:hover{
+.singleImgConDiv:hover{
+    cursor: pointer;
+}
+.singleImgConDiv img{
+    border-radius: 5px;
+    width: 96%;
+    height: 96%;
+}
+.singleImgConDiv img:hover{
     cursor: pointer;
 }
 

@@ -4,7 +4,7 @@ import photoIcon from "../../static/photoIcon.svg";
 import videoIcon from "../../static/videoIcon.svg";
 import "./postCon.css";
 import { hc } from "../../requestFiles/huche.js";
-import Hc from "../hcCon/Hc.jsx";
+import { isLogin } from "../..//utility.js";
 export default class PostCon extends React.Component {
   constructor(props) {
     super(props);
@@ -27,28 +27,35 @@ export default class PostCon extends React.Component {
       this.setState({ videoUrl: e.target.result });
     };
   };
+
+  //提交
   handleSubmit = (e) => {
     e.preventDefault();
-    let formData = new FormData();
-    if (localStorage.getItem("token")) {
-      let id = localStorage.getItem("token").split(".?")[0];
-      formData.append("userId", id);
-      formData.append("cmt", this.state.cmt);
-      for (let i = 0; i < this.photo.current.files.length; i++) {
-        formData.append("photo", this.photo.current.files[i]);
-      }
-
-      hc(formData, (value) => {
-        if (value.status === 200 && value.data.success === 1) {
-          this.props.getData(value.data.data);
-        } else {
-          console.error("error");
+    const token = isLogin();
+    if (token) {
+      if (cmt || media.length) {
+        let formData = new FormData();
+        let id = localStorage.getItem("token").split(".?")[0];
+        formData.append("userId", id);
+        formData.append("cmt", this.state.cmt);
+        if (this.photo.current != null) {
+          for (let i = 0; i < this.photo.current.files.length; i++) {
+            formData.append("photo", this.photo.current.files[i]);
+          }
         }
-      });
+        hc(formData, (value) => {
+          if (value.status === 200 && value.data.success === 1) {
+            this.props.getData(value.data.data);
+          } else {
+            console.error("error");
+          }
+        });
+      }
     } else {
       alert("请登录");
     }
-    this.setState({ cmt: "", media: "", videoUrl: "" });
+    this.photo.current = null;
+    this.setState({ cmt: "", media: [], videoUrl: "" });
   };
 
   // promise 异步加载图片
@@ -129,7 +136,7 @@ export default class PostCon extends React.Component {
             type="submit"
             className="nPostBtn"
             form="inputForm"
-            value="#匿名发表"
+            value="#发表"
           />
         </div>
         <Fragment>

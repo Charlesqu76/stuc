@@ -1,0 +1,61 @@
+#imgReader{
+    display: none;
+}
+.cpCon{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+
+}
+.cpSubCon{
+    width: 90%;
+    max-height: 400px;
+    display: flex;
+}
+.cpBtnCon{
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+.cpBtnCon button{
+    border-radius: 5px;
+    outline: none;
+}
+.cpBtnExit{
+    width: 60px;
+    background-color:#ffffff;
+    margin-right: 20px;
+
+}
+.cpBtnConfirm{
+    width: 60px;
+    background-color: rgb(21, 255, 52);
+}
+.cpBtnCon button:hover{
+    cursor: pointer;
+}
+#cropImg{
+    border-radius: 5px;
+
+}
+.previewCon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+}
+.previewBox, .previewBoxRound{
+    box-shadow: 0 0 5px #adadad;
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+    overflow: hidden;    
+}
+.previewBoxRound{
+    border-radius: 50%;     
+}

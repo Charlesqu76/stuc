@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/huche/:id" exact>
             <DetailPage />
           </Route>
-          <Route path="/center/:id" exact>
+          <Route path="/center/:id">
             <Center />
           </Route>
           <Route path="/manage/user" exact>

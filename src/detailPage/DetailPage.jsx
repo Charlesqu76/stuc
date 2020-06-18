@@ -3,6 +3,7 @@ import HcDetail from "../Component/hcDetail/HcDetail.jsx";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { baseUrl } from "../constVar.js";
+import './detailPage.css';
 
 function DetailPage() {
   let [data, setData] = useState(null);
@@ -15,7 +16,7 @@ function DetailPage() {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <div>
+    <div className = 'hcDetailPageCon'>
       {data ? <HcDetail data={data}/> : <></>}
     </div>
   );

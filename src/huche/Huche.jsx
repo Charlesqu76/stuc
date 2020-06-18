@@ -5,6 +5,7 @@ import axiso from "axios";
 import { baseUrl } from "../constVar.js";
 import "./huche.css";
 import { eleIsVisiable } from "../utility.js";
+import {debound} from '../utility.js';
 
 export default HcCom;
 function HcCom() {
@@ -34,7 +35,6 @@ function HcList(props) {
       if (eleIsVisiable(HcLoadingCon)) {
         setPage(page + 1);
         window.removeEventListener("scroll", watchBounding);
-        console.log("visiable");
       } else {
         console.log("invisiable");
       }
@@ -72,7 +72,7 @@ function HcList(props) {
     <div>
       <div className="HcTotalCon">
         {dataList.map((value) => (
-          <Hc key={value.id} data={value} detail={false} />
+          <Hc key={value.id} data={value} />
         ))}
       </div>
       {loading ? (

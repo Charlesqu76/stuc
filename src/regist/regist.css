@@ -18,9 +18,21 @@
     box-shadow: 2px 2px 5px #3d79e9;
 
 }
+.regShowError{
+    width: 95%;
+    padding: 5px;
+    background-color: rgb(233, 125, 106);
+    border: 1px solid rgb(228, 100, 78);
+    border-radius: 5px;
+    font-size: 0.75rem;
+    /* color: red; */
+}
+.regShowError p{
+    width: 100%;
+    text-align: center;
+}
 .RegForm{
     width: 95%;
-    margin-top: 30px;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -65,12 +77,21 @@
     width: 70%;
     height: 40px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #33548a,#e67f4f);
     margin: auto;
     color: white;
     font-size: 1rem;
     line-height: 19px;
 }
+.regFormBtnNotActive{
+    cursor: not-allowed;
+    background-color: gray;
+}
+.regFormBtnActive{
+    background: linear-gradient(90deg, #33548a,#e67f4f)
+}
+.regFormBtnActive:hover{
+    cursor: pointer;
+} 
  
 #password_again_div p{
     margin: 0 auto;

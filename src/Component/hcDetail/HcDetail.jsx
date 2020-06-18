@@ -6,8 +6,9 @@ import cmtIcon from "../../static/cmtIcon.svg";
 import defaultUserImg from "../../static/defaultUserImg.svg";
 import { baseUrl } from "../../constVar.js";
 import { hcLike, hcCmt, hc } from "../../requestFiles/huche.js";
-import { converStrToDate, isLogin, findId } from "../../utility.js";
+import { converStrToDate, isLogin, findId, } from "../../utility.js";
 import "./hcDetail.css";
+import { useHistory } from "react-router";
 export default HcDetail;
 function HcDetail(props) {
   const [recLike, setRecLike] = useState(null);
@@ -20,6 +21,7 @@ function HcDetail(props) {
     setRecCmt(cmt);
   };
   let recLikeFun = (like) => {
+    console.log(like);
     setRecLike(like);
   };
   useEffect(() => {
@@ -55,7 +57,7 @@ function HcDetail(props) {
     }
   }, [recLike]);
   return (
-    <div className="HcCon" id={data.id}>
+    <div className="HcDetailCon" id={data.id}>
       <HcHead data={data.user} time={data.time} />
       <HcBodyCon cmt={data.content} media={data.media} />
       <HcDown id={data.id} recCmtFun={recCmtFun} recLikeFun={recLikeFun} />
@@ -95,6 +97,7 @@ function HcBodyCon(props) {
 
 function HcDown(props) {
   const [showCmt, setShowCmt] = useState(false);
+  const history = useHistory();
   const handleClickLike = () => {
     let token = isLogin();
     if (token) {
@@ -103,13 +106,13 @@ function HcDown(props) {
       data.append("hucheId", props.id);
       data.append("userId", id);
       hcLike(data, (value) => {
+        console.log(value);
         props.recLikeFun(value.data.like);
       });
     } else {
-      alert("请登录");
+      history.push('/login');
     }
   };
-
   const showCmtPost = () => {
     setShowCmt(true);
   };
@@ -209,7 +212,7 @@ function HcCmt(props) {
 
   useEffect(() => {
     setCmtId(findId(conRef.current, "HcCmtCon"));
-    setHcId(findId(conRef.current, "HcCon"));
+    setHcId(findId(conRef.current, "HcDetailCon"));
   }, [cmtId, hcId]);
 
   return (

@@ -6,9 +6,9 @@ import titleIcon from "../../static/titleIcon.svg";
 import helpIcon from "../../static/helpIcon.svg";
 import defaultUserImg from "../../static/defaultUserImg.svg";
 import { topNavVer } from "../../requestFiles/topNav.js";
+import { isLogin } from "../../utility.js";
 export default TopNav;
 function TopNav(props) {
-  console.log("topNav");
   const history = useHistory();
   let topTitleClick = (e) => {
     history.push("/huche");
@@ -20,7 +20,7 @@ function TopNav(props) {
         <div className="TopNavTitle" onClick={topTitleClick}>
           <img src={titleIcon} />
         </div>
-        {props.user && <TopNavRight/>}
+        {props.user && <TopNavRight />}
       </div>
     </Fragment>
   );
@@ -28,21 +28,22 @@ function TopNav(props) {
 
 function TopNavRight() {
   const [login, setLogin] = useState(false);
-  const [name, setName] = useState('');
-  const [img, setImg] = useState('');
+  const [name, setName] = useState("");
+  const [img, setImg] = useState("");
   const history = useHistory();
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setLogin(true);
-    }
-    topNavVer((value) => {
-      if (value.data.login === 1) {
-        setName(value.data.data.name);
-        setImg(value.data.data.img);
-      }
-    });
-  }, []);
 
+  useEffect(() => {
+    const token = isLogin();
+    if (token) {
+      topNavVer((value) => {
+        if (value.status === 200 && value.data.login === 1) {
+          setName(value.data.data.name);
+          setImg(value.data.data.img);
+          setLogin(true);
+        }
+      });
+    }
+  }, []);
 
   let centerClick = (e) => {
     let id = localStorage.getItem("token").split(".?")[0];

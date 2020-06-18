@@ -1,99 +1,89 @@
 import React, { createRef } from "react";
 import "./photoCon.css";
+import { useRef } from "react";
+import { useEffect } from "react";
+import { useMemo } from "react";
 
-export default class MediaCon extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.conDiv = createRef();
+const getConWidthHeight = (conDivWidth, imgLen) => {
+  let imgConWidth;
+  let imgConHeight;
+  if (imgLen === 1) {
+    imgConWidth = conDivWidth - 10;
+    imgConHeight = imgConWidth;
+  } else if (imgLen === 2 || imgLen === 4) {
+    imgConWidth = conDivWidth / 2 - 10;
+    imgConHeight = imgConWidth;
+  } else if (
+    imgLen === 3 ||
+    imgLen === 5 ||
+    imgLen === 6 ||
+    imgLen === 7 ||
+    imgLen === 9
+  ) {
+    imgConWidth = conDivWidth / 3 - 10;
+    imgConHeight = imgConWidth;
+  } else if (imgLen === 8) {
+    imgConWidth = conDivWidth / 4 - 10;
+    imgConHeight = imgConWidth;
   }
+  return {
+    imgConWidth: Math.round(imgConWidth),
+    imgConHeight: Math.round(imgConHeight),
+  };
+};
 
-  componentDidMount() {
-    this.conDiv.current.innerHTML = "";
-    this.createMediaCon(this.props.baseUrl, this.props.media);
-  }
+const getBackgroundSize = (conWidth, conHeight, imgWith, imgHeight) => {
+  let mulScale = conWidth / imgWith;
+  return {
+    mulScale: mulScale,
+    height: mulScale * imgHeight - conHeight,
+  };
+};
 
-  componentDidUpdate(prevProps) {
-    this.conDiv.current.innerHTML = "";
-    this.createMediaCon(this.props.baseUrl, this.props.media);
-  }
+export default MediaCon;
+function MediaCon(props) {
+  console.log("ads");
+  const conDiv = useRef();
+  useEffect(() => {
+    conDiv.current.innerHTML = "";
+    createMediaCon(props.baseUrl, props.media);
+  }, [props]);
 
-  changeImg = (baseUrl, url, imgWidth, imgHeight = 200) => {
+  const changeImg = (baseUrl, url, imgConWidth, imgConHeight) => {
     let imgConDiv = document.createElement("div");
     imgConDiv.className = "singleImgConDiv";
-    imgConDiv.style.width = imgWidth;
-    imgConDiv.style.height = imgHeight;
-    // console.log(imgConDiv);
+    imgConDiv.style.width = `${imgConWidth}px`;
+    imgConDiv.style.height = `${imgConHeight}px`;
+    imgConDiv.style.backgroundImage = `url(${baseUrl + url}`;
+    // imgConDiv.onclick = (e) => {console.log(e.target.style.backgroundImage)};
     let img = new Image();
     img.src = baseUrl + url;
+    img.style.display = "None";
     img.onload = function () {
-      let oldHeight = this.height; //照片原始高度
-      let oldWidth = this.width; //照片原始宽度
-      this.width = imgWidth; //div 宽度
-      this.height = imgHeight; //div 高度
-      let scaleHeight = (this.width * oldHeight) / oldWidth; //等比例缩放高度
-      if (scaleHeight > imgHeight) {
-        this.height = imgWidth;
-        this.width = (scaleHeight * oldWidth) / oldHeight;
-      } else if (scaleHeight < imgHeight) {
-        this.height = imgWidth;
-        this.width = (scaleHeight * oldWidth) / oldHeight;
-      }
-      // console.log(this.height, scaleHeight);
+      let { height } = getBackgroundSize(
+        imgConWidth,
+        imgConHeight,
+        this.width,
+        this.height,
+      );
+      imgConDiv.style.backgroundSize = `100%`;
+      imgConDiv.style.backgroundPositionY = `${-height / 2}px`;
     };
-    imgConDiv.append(img);
     return imgConDiv;
   };
-  createMediaCon = (baseUrl, object) => {
-    let this_ = this;
-    let mediaNum = object.length;
-    let conDivWidth = this.conDiv.current.clientWidth - 30;
-    // console.log(conDivWidth);
-    if (mediaNum === 1) {
-      let media = new Image();
-      media.src = baseUrl + object[0].photo_video;
-      media.onload = function () {
-        if (this.width > 480) {
-          let oldWidth = this.width;
-          let oldHeight = this.height;
-          this.width = conDivWidth;
-          this.height = (this.width * oldHeight) / oldWidth;
-        }
-        this.style.borderRadius = 10 + "px";
-        this_.conDiv.current.append(media);
-      };
-    } else if (mediaNum === 2) {
-      let imgWidth = conDivWidth / 2 - 10;
-      let imgHeight = 300;
-      object.map((medias) => {
-        this.conDiv.current.append(
-          this.changeImg(baseUrl, medias.photo_video, imgWidth, imgHeight),
-        );
-      });
-    } else if (mediaNum === 3) {
-      let imgWidth = conDivWidth / 3 - 10;
-      object.map((medias) => {
-        this.conDiv.current.append(
-          this.changeImg(baseUrl, medias.photo_video, imgWidth),
-        );
-      });
-    } else if (mediaNum === 4) {
-      let imgWidth = conDivWidth / 2 - 10;
-      object.map((medias) => {
-        this.conDiv.current.append(
-          this.changeImg(baseUrl, medias.photo_video, imgWidth, imgWidth),
-        );
-      });
-    } else {
-      let imgWidth = conDivWidth / 3 - 10;
-      object.map((medias) => {
-        this.conDiv.current.append(
-          this.changeImg(baseUrl, medias.photo_video, imgWidth),
-        );
-      });
-    }
+  const createMediaCon = (baseUrl, imgs) => {
+    let mediaLen = imgs.length;
+    let conDivWidth = conDiv.current.clientWidth;
+    const { imgConWidth, imgConHeight } = getConWidthHeight(
+      conDivWidth,
+      mediaLen,
+    );
+    imgs.map((img) => {
+      conDiv.current.append(
+        changeImg(baseUrl, img.photo_video, imgConWidth, imgConHeight),
+      );
+    });
   };
 
-  render() {
-    return <div className="mediaCon" ref={this.conDiv} />;
-  }
+  return <div className="mediaCon" ref={conDiv} />;
 }

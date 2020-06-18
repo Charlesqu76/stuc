@@ -19,27 +19,59 @@ export let converStrToDate = (strDate) => {
 };
 
 //判断是否是窗口内
-export function eleIsVisiable(ele, partiallyVisible = true){
-  const { top, left, bottom, right } = ele.getBoundingClientRect();
-  const { innerHeight, innerWidth } = window;
-  return partiallyVisible
-        ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
-        ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
-        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+export function eleIsVisiable(ele, partiallyVisible = true) {
+  const {
+    top,
+    left,
+    bottom,
+    right
+  } = ele.getBoundingClientRect();
+  const {
+    innerHeight,
+    innerWidth
+  } = window;
+  return partiallyVisible ?
+    ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+    ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth)) :
+    top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
 }
 
 //是否登陆
-export function isLogin(){
+export function isLogin() {
   const token = localStorage.getItem('token');
-  return token ? token : false
+  return token ? token : false;
 }
 
 
 //查找制定祖辈的id
-export const findId = (ele, findCls) =>{
-     if ($(ele).attr('class').includes(findCls)){
-       return $(ele).attr('id')
-     }else{
-       return findId($(ele).parent(),findCls)
-     }
+export const findId = (ele, findCls) => {
+  if ($(ele).attr('class').includes(findCls)) {
+    return $(ele).attr('id')
+  } else {
+    return findId($(ele).parent(), findCls)
+  }
+}
+
+//防抖
+export const debound = (fun, delay) => {
+  let timeout = null;
+  return function (args) {
+    let that = this;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    setTimeout(() => {
+      fun.call(that, args)
+    }, delay);
+  }
+}
+
+
+
+//格式检查
+export function checkType(type, checkData) {
+  if (type === 'email') {
+    let pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    return pattern.test(checkData);
+  }
 }

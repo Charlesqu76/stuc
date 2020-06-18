@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
     this.state = {
       name: "",
       psd: "",
-      // success: true,
+      errormsg: null,
     };
   }
 
@@ -67,7 +67,7 @@ class LoginForm extends React.Component {
       localStorage.setItem("token", token);
       this.props.history.push("/huche");
     } else if (success === 0) {
-      alert("用户名或密码错误，请重新输入");
+      this.setState({ errormsg: "用户名或密码错误，请重新输入" });
     } else {
       console.error("error");
     }
@@ -80,39 +80,47 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form className="LoginForm" onSubmit={this.handleSubmit}>
-        <div className="LoginNPCon">
-          <div className="LoginUser LoginInputCon">
+      <Fragment>
+        {this.state.errormsg ? (
+          <div className="loginErrorCon">
+            <p>{this.state.errormsg}</p>
+          </div>
+        ) : null}
+
+        <form className="LoginForm" onSubmit={this.handleSubmit}>
+          <div className="LoginNPCon">
+            <div className="LoginUser LoginInputCon">
+              <input
+                type="text"
+                className="LoginInputUser LoginInput"
+                name="name"
+                placeholder="用户名"
+                required="required"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="LoginPsd LoginInputCon">
+              <input
+                type="password"
+                className="LoginInputPsd LoginInput"
+                name="psd"
+                placeholder="密码"
+                required="required"
+                autoComplete="off"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="LoginBtnCon">
             <input
-              type="text"
-              className="LoginInputUser LoginInput"
-              name="name"
-              placeholder="用户名"
-              required="required"
-              onChange={this.handleChange}
+              type="submit"
+              className="LoginBtn"
+              name="submit"
+              value="登陆"
             />
           </div>
-          <div className="LoginPsd LoginInputCon">
-            <input
-              type="password"
-              className="LoginInputPsd LoginInput"
-              name="psd"
-              placeholder="密码"
-              required="required"
-              autoComplete="off"
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        <div className="LoginBtnCon">
-          <input
-            type="submit"
-            className="LoginBtn"
-            name="submit"
-            value="登陆"
-          />
-        </div>
-      </form>
+        </form>
+      </Fragment>
     );
   }
 }

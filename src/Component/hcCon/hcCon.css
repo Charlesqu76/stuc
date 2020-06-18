@@ -1,9 +1,3 @@
-.HcComBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-}
 
 .HcCon {
     padding: 5px;
@@ -19,12 +13,12 @@
 .HcCon:hover{
     cursor: pointer;
 }
-.componCon {
-    width: 80%;
+.HcCon > div{
+    width: 90%;
     padding: 5px;
     margin: 1px;
-    /* background-color: salmon; */
 }
+
 .HcHeadCon {
     display: flex;
     flex-direction: row;
@@ -85,7 +79,7 @@
 .HcIcon {
     width: 20px;
     height: 20px;
-    /*background-color: red;*/
+    /* background-color: red; */
     margin: 0 5px;
 
 }

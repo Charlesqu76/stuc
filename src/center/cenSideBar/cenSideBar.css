@@ -1,0 +1,70 @@
+
+.sideBarCom{
+    position: relative;
+    display: flex;
+    width: 100%;
+    /* background-color: sandybrown; */
+    flex-direction: column;
+    align-items: center;
+
+}
+.sideBarCom > div{
+    width: 90%;
+    margin: 1px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sideBarHeader{
+    padding: 5px 0px;
+}
+.sideBarImgCon{
+    /* background-color: steelblue; */
+    position: relative;
+    width: 50%;
+}
+.siderBarChangeP{
+    font-size: 0.75rem;
+    position: absolute;
+    top: 35%;
+    left: 10px;
+    display: none;
+    
+
+}
+.sideBarImg{
+    width: 100%;
+    border-radius: 100%;
+}
+.sideBarImg:hover{
+    cursor: pointer;
+    opacity: 0.2;
+}
+.sideBarImg:hover  .siderBarChangeP{
+    display: block;
+} 
+
+.sideBarNameCon{
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+.sideBarListUl{
+    width: 80%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.sideBarListUl li{
+    width: 100%;
+    height: 30px;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+.sideBarListUl li:hover{
+    background-color: silver;
+    cursor: pointer;
+}

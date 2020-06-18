@@ -1,26 +1,15 @@
-body{
+*{
     margin: 0;
     padding: 0;
     list-style-type: none;
-    background-color: silver;
-    height: 100%;
     outline: none;
+    text-decoration: none;
+
 }
 a{
-    text-decoration: none;
     color: #000000;
 }
-p{
-    margin: 0px;
-    padding: 0px;
-}
-ul,li{
-    margin:0; padding:0;
-    list-style:none; 
-}
-li {
-     display:inline;
-    }
+
 table{
         border-collapse: collapse;
 }
