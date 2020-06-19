@@ -1,6 +1,7 @@
 import React from "react";
 import "./cenSideBar.css";
 import { NavLink, useHistory } from "react-router-dom";
+import { baseUrl } from "../../constVar";
 
 const changePhoto = () => {
   $("#imgReader").click();
@@ -8,6 +9,7 @@ const changePhoto = () => {
 
 export default SideBar;
 function SideBar(props) {
+  console.log(props);
   return (
     <>
       <div className="sideBarCom">
@@ -16,7 +18,7 @@ function SideBar(props) {
             <p className="siderBarChangeP">更换头像</p>
             <img
               className="sideBarImg"
-              src="http://127.0.0.1:8000/media/img/img_ocAh6N9.jpeg"
+              src= {baseUrl + props.info.img}
               onClick={changePhoto}
             />
           </div>

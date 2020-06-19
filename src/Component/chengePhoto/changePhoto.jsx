@@ -43,7 +43,7 @@ function getData() {
   }).toBlob((blob) => {
     //然后调用浏览器原生的toBlob方法将canvas数据转换成blob数据
     const formData = new FormData();
-    formData.append("croppedImage", blob);
+    formData.append("croppedImage", blob, 'img.jpg');
     formData.append("id", 1);
     let config = {
       headers: { "Content-Type": "multipart/form-data" },

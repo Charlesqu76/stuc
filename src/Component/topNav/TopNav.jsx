@@ -7,6 +7,7 @@ import helpIcon from "../../static/helpIcon.svg";
 import defaultUserImg from "../../static/defaultUserImg.svg";
 import { topNavVer } from "../../requestFiles/topNav.js";
 import { isLogin } from "../../utility.js";
+import {baseUrl} from '../../constVar.js'
 export default TopNav;
 function TopNav(props) {
   const history = useHistory();
@@ -67,7 +68,7 @@ function TopNavRight() {
                   src={
                     img === ""
                       ? defaultUserImg
-                      : "http://127.0.0.1:8000/media/" + img
+                      : `${baseUrl}/media/${img}`
                   }
                 />
                 <ul className="TopNavImgDown">

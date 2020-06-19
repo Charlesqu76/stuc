@@ -33,7 +33,7 @@ export default class PostCon extends React.Component {
     e.preventDefault();
     const token = isLogin();
     if (token) {
-      if (cmt || media.length) {
+      if (this.state.cmt || this.state.media.length) {
         let formData = new FormData();
         let id = localStorage.getItem("token").split(".?")[0];
         formData.append("userId", id);
