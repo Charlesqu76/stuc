@@ -6,10 +6,11 @@ import titleIcon from "../../static/titleIcon.svg";
 import helpIcon from "../../static/helpIcon.svg";
 import defaultUserImg from "../../static/defaultUserImg.svg";
 import { topNavVer } from "../../requestFiles/topNav.js";
-import { isLogin } from "../../utility.js";
-import {baseUrl} from '../../constVar.js'
-export default TopNav;
-function TopNav(props) {
+import { baseUrl } from "../../constVar.js";
+import { connect } from "react-redux";
+import { logOut } from "../../reduxFIles/actions/log.js";
+
+export default function TopNav(props) {
   const history = useHistory();
   let topTitleClick = (e) => {
     history.push("/huche");
@@ -27,24 +28,35 @@ function TopNav(props) {
   );
 }
 
-function TopNavRight() {
-  const [login, setLogin] = useState(false);
+const mapStateToProps = (state) => {
+  return {
+    log: state.log,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => {
+      dispatch(logOut());
+    },
+  };
+};
+TopNavRight = connect(mapStateToProps, mapDispatchToProps)(TopNavRight);
+
+function TopNavRight(props) {
   const [name, setName] = useState("");
   const [img, setImg] = useState("");
   const history = useHistory();
-
   useEffect(() => {
-    const token = isLogin();
-    if (token) {
+    if (props.log) {
       topNavVer((value) => {
         if (value.status === 200 && value.data.login === 1) {
           setName(value.data.data.name);
           setImg(value.data.data.img);
-          setLogin(true);
         }
       });
     }
-  }, []);
+  }, [props.log]);
 
   let centerClick = (e) => {
     let id = localStorage.getItem("token").split(".?")[0];
@@ -53,23 +65,19 @@ function TopNavRight() {
   };
   let exitClick = (e) => {
     localStorage.removeItem("token");
-    setLogin(false);
+    props.logout();
     e.stopPropagation();
   };
   return (
     <Fragment>
       <ul className="TopNavRight">
         <div className="TopNavRightNameCon">
-          {login ? (
+          {props.log ? (
             <Fragment>
               <div className="TopNavImgCon">
                 <img
                   className="TopNavImg"
-                  src={
-                    img === ""
-                      ? defaultUserImg
-                      : `${baseUrl}/media/${img}`
-                  }
+                  src={img === "" ? defaultUserImg : `${baseUrl}/media/${img}`}
                 />
                 <ul className="TopNavImgDown">
                   <li>

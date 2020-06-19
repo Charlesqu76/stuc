@@ -1,11 +1,18 @@
 import React, { Fragment } from "react";
+import "./login.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import TopNav from "../Component/topNav/TopNav.jsx";
-import "./login.css";
 import titleIcon from "../static/titleIcon.svg";
 import { baseUrl } from "../constVar.js";
+import { connect } from "react-redux";
+import { logIn } from "../reduxFIles/actions/log.js";
+
+// const mapStateToProps = (state) => {
+//     return {
+//       log: state.log
+//     };
+//   };
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -47,10 +54,6 @@ class LoginForm extends React.Component {
     };
   }
 
-  componentDidMount() {
-    // console.log(this.props);
-  }
-
   handleSubmit = (e) => {
     let data = { name: this.state.name, psd: this.state.psd };
     e.preventDefault();
@@ -63,8 +66,8 @@ class LoginForm extends React.Component {
   };
   LoginOrNot = (success, token) => {
     if (success === 1) {
-      console.log("success log in ");
       localStorage.setItem("token", token);
+      this.props.login();
       this.props.history.push("/huche");
     } else if (success === 0) {
       this.setState({ errormsg: "用户名或密码错误，请重新输入" });
@@ -120,9 +123,25 @@ class LoginForm extends React.Component {
             />
           </div>
         </form>
+        <div>
+          <p>1</p>
+          <button
+            className="bbbtn"
+            onClick={() => {
+              this.props.login();
+            }}
+          >
+            ++++
+          </button>
+        </div>
       </Fragment>
     );
   }
 }
 
-LoginForm = withRouter(LoginForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: () => dispatch(logIn()),
+  };
+};
+LoginForm = connect(null, mapDispatchToProps)(withRouter(LoginForm));
