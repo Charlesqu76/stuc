@@ -12,6 +12,7 @@ export default class PostCon extends React.Component {
       cmt: "",
       videoUrl: "",
       media: [],
+      postImg: [],
       reserveDate: null,
     };
     this.photo = createRef();
@@ -38,24 +39,22 @@ export default class PostCon extends React.Component {
         let id = localStorage.getItem("token").split(".?")[0];
         formData.append("userId", id);
         formData.append("cmt", this.state.cmt);
-        if (this.photo.current != null) {
-          for (let i = 0; i < this.photo.current.files.length; i++) {
-            formData.append("photo", this.photo.current.files[i]);
+        if (this.state.postImg.length) {
+          for (let i = 0; i < this.state.postImg.length; i++) {
+            formData.append("photo", this.state.postImg[i]);
           }
         }
         hc(formData, (value) => {
           if (value.status === 200 && value.data.success === 1) {
             this.props.getData(value.data.data);
           } else {
-            console.error("error");
           }
         });
       }
     } else {
       alert("请登录");
     }
-    this.photo.current = null;
-    this.setState({ cmt: "", media: [], videoUrl: "" });
+    this.setState({ cmt: "", media: [], videoUrl: "", postImg: [] });
   };
 
   // promise 异步加载图片
@@ -77,6 +76,7 @@ export default class PostCon extends React.Component {
     let photoLength = files.length;
     let photoPromises = [];
     for (let i = 0; i < photoLength; i++) {
+      this.state.postImg.push(files[i]);
       photoPromises.push(this.loadImgAsync(i, files[i]));
     }
     Promise.all(photoPromises).then((value) => {

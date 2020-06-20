@@ -6,8 +6,8 @@ import Webpage404 from "./404/404.jsx";
 import DetailPage from "./detailPage/DetailPage.jsx";
 import TopNav from "./Component/topNav/TopNav.jsx";
 import Center from "./center/Center.jsx";
-import User from "./manage/user/user.jsx";
-import Hc from "./manage/hc/hc.jsx";
+import Mag from './manage/mag.jsx';
+
 
 import {
   HashRouter as Router,
@@ -37,12 +37,15 @@ export default function App() {
           <Route path="/center/:id">
             <Center />
           </Route>
-          <Route path="/manage/user" exact>
-            <User />
+          <Route path="/manage" >
+            <Mag />
           </Route>
-          <Route path="/manage/hc" exact>
-            <Hc />
+          {/* <Route path={"/aboutUs"} exact>
+            <CenInfo />
           </Route>
+          <Route path={"/question"} exact>
+            <CenInfo />
+          </Route> */}
           <Route path="/" exact>
             <Redirect to="/huche" />
           </Route>

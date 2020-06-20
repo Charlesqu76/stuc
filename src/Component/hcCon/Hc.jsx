@@ -5,7 +5,6 @@ import { useHistory } from "react-router";
 import likeIcon from "../../static/likeIcon.svg";
 import watchIcon from "../../static/watchIcon.svg";
 import cmtIcon from "../../static/cmtIcon.svg";
-import defaultUserImg from "../../static/defaultUserImg.svg";
 import { baseUrl } from "../../constVar.js";
 import { converStrToDate } from "../../utility.js";
 
@@ -37,7 +36,7 @@ function HcHead(props) {
     <div className="HcHeadCon componCon">
       <div className="HcHeadImgCon">
         <img
-          src={props.data.img ? baseUrl + props.data.img : defaultUserImg}
+          src={baseUrl + props.data.img}
           className="HcHeadImg"
         />
       </div>

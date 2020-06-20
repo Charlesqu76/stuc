@@ -5,7 +5,7 @@ import { baseUrl } from "../constVar.js";
 
 export function topNavVer(fun){
     axios
-      .post(baseUrl + "/signin/vertificationLog")
+      .post(baseUrl + "/signin/vertificationLog", {token: localStorage.getItem("token")})
       .then((res) => {
           fun(res)
       })

@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import titleIcon from "../../static/titleIcon.svg";
 import helpIcon from "../../static/helpIcon.svg";
-import defaultUserImg from "../../static/defaultUserImg.svg";
 import { topNavVer } from "../../requestFiles/topNav.js";
 import { baseUrl } from "../../constVar.js";
 import { connect } from "react-redux";
 import { logOut } from "../../reduxFIles/actions/log.js";
 
-export default function TopNav(props) {
+export default function TopNav() {
   const history = useHistory();
   let topTitleClick = (e) => {
     history.push("/huche");
@@ -22,11 +21,14 @@ export default function TopNav(props) {
         <div className="TopNavTitle" onClick={topTitleClick}>
           <img src={titleIcon} />
         </div>
-        {props.user && <TopNavRight />}
+        <TopNavRight />
       </div>
     </Fragment>
   );
 }
+
+
+
 
 const mapStateToProps = (state) => {
   return {
@@ -41,6 +43,7 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
 TopNavRight = connect(mapStateToProps, mapDispatchToProps)(TopNavRight);
 
 function TopNavRight(props) {
@@ -72,12 +75,12 @@ function TopNavRight(props) {
     <Fragment>
       <ul className="TopNavRight">
         <div className="TopNavRightNameCon">
-          {props.log ? (
+          {props.log && name? (
             <Fragment>
               <div className="TopNavImgCon">
                 <img
                   className="TopNavImg"
-                  src={img === "" ? defaultUserImg : `${baseUrl}/media/${img}`}
+                  src={`${baseUrl}/media/${img}`}
                 />
                 <ul className="TopNavImgDown">
                   <li>

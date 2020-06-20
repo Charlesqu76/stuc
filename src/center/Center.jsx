@@ -1,6 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
 import "./center.css";
-import { Route, Switch, useLocation, useParams } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  useRouteMatch,
+  useParams,
+  Redirect,
+} from "react-router-dom";
 import SideBar from "./cenSideBar/cenSideBar.jsx";
 import CenInfo from "./cenInfo/cenInfo.jsx";
 import CenHc from "./centerHc/cenHc.jsx";
@@ -10,6 +16,7 @@ import ChangePhoto from "../Component/chengePhoto/changePhoto.jsx";
 export default function Center() {
   const [userInfo, setUserInfo] = useState(null);
   const params = useParams();
+  let { path, url } = useRouteMatch();
   useEffect(() => {
     getUserInfo(params.id, (value) => {
       setUserInfo(value.data.data);
@@ -17,12 +24,11 @@ export default function Center() {
   }, []);
   return (
     <Fragment>
-      <div className = 'changePhotoConDiv'>
+      <div className="changePhotoConDiv">
         <div className="changePhotoSubConDiv">
           <ChangePhoto />
         </div>
       </div>
-
       {userInfo != null ? (
         <div className="centerCon">
           <div className="cenConBarCon">
@@ -30,17 +36,14 @@ export default function Center() {
           </div>
           <div className="centerCntCon">
             <Switch>
-              <Route path="/center/:id/info" exact>
+              <Route path={`${path}`} exact>
+                <Redirect to={`${url}/info`} />
+              </Route>
+              <Route path={`${path}/info`} exact>
                 <CenInfo info={userInfo} />
               </Route>
-              <Route path="/center/:id/hc" exact>
+              <Route path={`${path}/hc`} exact>
                 <CenHc />
-              </Route>
-              <Route path="/center/:id/aboutUs" exact>
-                <CenInfo />
-              </Route>
-              <Route path="/center/:id/question" exact>
-                <CenInfo />
               </Route>
             </Switch>
           </div>

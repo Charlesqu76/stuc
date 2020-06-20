@@ -11,6 +11,8 @@
     flex-direction: row;
     margin: 20px 0px;
     width: 90%;
+    /* background-color: blue; */
+    height: 50px;
 }
 
 .cenInfoCon p{
@@ -19,9 +21,12 @@
     line-height: 30px;
 }
 .cenInfoLabelCon{
-    /* background-color: aqua; */
-    width: 100px;
+    min-width: 100px;
     width: 30%;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cenInfoVCon{
     width: 70%;

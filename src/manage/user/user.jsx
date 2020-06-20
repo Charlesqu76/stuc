@@ -29,7 +29,6 @@ function UserData() {
   useEffect(() => {
     getUserData((value) => {
       if (value.status === 200) {
-          console.log(value.data)
         if (value.data.success === 1) {
             setUser(value.data.data)
         }
@@ -47,7 +46,6 @@ function UserData() {
                   <td>{value.regist_time}</td>
               </tr>
           )
-          console.log(value)
       })}
   </Fragment>;
 }

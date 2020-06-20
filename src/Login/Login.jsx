@@ -8,11 +8,6 @@ import { baseUrl } from "../constVar.js";
 import { connect } from "react-redux";
 import { logIn } from "../reduxFIles/actions/log.js";
 
-// const mapStateToProps = (state) => {
-//     return {
-//       log: state.log
-//     };
-//   };
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -62,7 +57,7 @@ class LoginForm extends React.Component {
       .then((res) => {
         this.LoginOrNot(res.data["success"], res.data["token"]);
       })
-      .catch((e) => alert(e));
+      .catch((e) => console.log(e));
   };
   LoginOrNot = (success, token) => {
     if (success === 1) {
@@ -123,17 +118,6 @@ class LoginForm extends React.Component {
             />
           </div>
         </form>
-        <div>
-          <p>1</p>
-          <button
-            className="bbbtn"
-            onClick={() => {
-              this.props.login();
-            }}
-          >
-            ++++
-          </button>
-        </div>
       </Fragment>
     );
   }

@@ -3,10 +3,9 @@ import MediaCon from "../photoCon/mediaCon.jsx";
 import likeIcon from "../../static/likeIcon.svg";
 import likeIconActive from "../../static/likeIconActive.svg";
 import cmtIcon from "../../static/cmtIcon.svg";
-import defaultUserImg from "../../static/defaultUserImg.svg";
 import { baseUrl } from "../../constVar.js";
 import { hcLike, hcCmt, hc } from "../../requestFiles/huche.js";
-import { converStrToDate, isLogin, findId, } from "../../utility.js";
+import { converStrToDate, isLogin, findId } from "../../utility.js";
 import "./hcDetail.css";
 import { useHistory } from "react-router";
 export default HcDetail;
@@ -71,10 +70,7 @@ function HcHead(props) {
   return (
     <div className="HcHeadCon componCon">
       <div className="HcHeadImgCon">
-        <img
-          src={props.data.img ? baseUrl + props.data.img : defaultUserImg}
-          className="HcHeadImg"
-        />
+        <img src={baseUrl + props.data.img} className="HcHeadImg" />
       </div>
       <div className="HcHeadNTCon">
         <a className="HcHeadName">{props.data.name}</a>
@@ -110,7 +106,7 @@ function HcDown(props) {
         props.recLikeFun(value.data.like);
       });
     } else {
-      history.push('/login');
+      history.push("/login");
     }
   };
   const showCmtPost = () => {
@@ -217,16 +213,9 @@ function HcCmt(props) {
 
   return (
     <Fragment>
-      <div className={sub ? "HcCmtCon HcSubCmtCon" : 'HcCmtCon'} id={value.id}>
+      <div className={sub ? "HcCmtCon HcSubCmtCon" : "HcCmtCon"} id={value.id}>
         <div className="HcCmtUserImgCon">
-          <img
-            src={
-              value.commenter.img
-                ? baseUrl + value.commenter.img
-                : defaultUserImg
-            }
-            className="HcCmtUserImg"
-          />
+          <img src={baseUrl + value.commenter.img} className="HcCmtUserImg" />
         </div>
         <div className="HcCmtTextCon">
           <p>{value.content}</p>

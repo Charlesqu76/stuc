@@ -1,6 +1,6 @@
 import React from "react";
 import "./cenSideBar.css";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 import { baseUrl } from "../../constVar";
 
 const changePhoto = () => {
@@ -9,6 +9,7 @@ const changePhoto = () => {
 
 export default SideBar;
 function SideBar(props) {
+  const {url} = useRouteMatch();
   console.log(props);
   return (
     <>
@@ -29,16 +30,16 @@ function SideBar(props) {
         <div className="sideBarList">
           <ul className="sideBarListUl">
             <li>
-              <NavLink to="/center/1/info">我的信息</NavLink>
+              <NavLink to={`${url}/info`}>我的信息</NavLink>
             </li>
             <li>
-              <NavLink to="/center/1/hc">我的胡扯</NavLink>
+              <NavLink to={`${url}/hc`} >我的胡扯</NavLink>
             </li>
             <li>
-              <NavLink to="/center/1/aboutUs">关于我们</NavLink>
+              <NavLink to="/aboutUs">关于我们</NavLink>
             </li>
             <li>
-              <NavLink to="/center/1/question">问题与反馈</NavLink>
+              <NavLink to="/question">问题与反馈</NavLink>
             </li>
           </ul>
         </div>

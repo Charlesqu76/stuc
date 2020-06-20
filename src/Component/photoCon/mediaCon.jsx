@@ -2,8 +2,6 @@ import React, { createRef } from "react";
 import "./photoCon.css";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { useMemo } from "react";
-
 const getConWidthHeight = (conDivWidth, imgLen) => {
   let imgConWidth;
   let imgConHeight;
@@ -42,7 +40,6 @@ const getBackgroundSize = (conWidth, conHeight, imgWith, imgHeight) => {
 
 export default MediaCon;
 function MediaCon(props) {
-  console.log("ads");
   const conDiv = useRef();
   useEffect(() => {
     conDiv.current.innerHTML = "";
@@ -55,7 +52,6 @@ function MediaCon(props) {
     imgConDiv.style.width = `${imgConWidth}px`;
     imgConDiv.style.height = `${imgConHeight}px`;
     imgConDiv.style.backgroundImage = `url(${baseUrl + url}`;
-    // imgConDiv.onclick = (e) => {console.log(e.target.style.backgroundImage)};
     let img = new Image();
     img.src = baseUrl + url;
     img.style.display = "None";

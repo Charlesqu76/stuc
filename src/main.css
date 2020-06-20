@@ -6,6 +6,10 @@
     text-decoration: none;
 
 }
+body{
+    background-color:#f5f9f9;
+
+}
 a{
     color: #000000;
 }
@@ -17,6 +21,10 @@ table, tr, td, th{
         border: 1px solid rgb(202, 198, 198);
  }
 
+ input{
+    background-color: #f2f5f6;
+    border-radius: 5px;
+ }
 
 
 

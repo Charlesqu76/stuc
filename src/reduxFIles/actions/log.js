@@ -1,6 +1,8 @@
 import {
     LOGIN,
     LOGOUT,
+    ADDLIKE,
+    CANCELLIKE,
 } from '../actionConst';
 export const logIn = () => {
     return {
