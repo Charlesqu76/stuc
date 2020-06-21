@@ -69,7 +69,7 @@ function HcList(props) {
     }
   }, [props.data]);
   return (
-    <div>
+    <>
       <div className="HcTotalCon">
         {dataList.map((value) => (
           <Hc key={value.id} data={value} />
@@ -82,6 +82,6 @@ function HcList(props) {
       ) : (
         <></>
       )}
-    </div>
+    </>
   );
 }

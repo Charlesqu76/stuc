@@ -7,9 +7,6 @@ import {logReducer,hcDetailReducer } from "./reduxFIles/reducers/allReducer.js";
 import { Provider } from "react-redux";
 
 
-
-
-
 const store = createStore(combineReducers(
   {
     log: logReducer,

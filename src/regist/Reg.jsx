@@ -43,7 +43,6 @@ class RegForm extends React.Component {
   //验证条件是否全都符合
   activeBtn = () => {
     const { emailExist, psdSame, check } = this.state;
-    console.log(emailExist, psdSame, check);
     !emailExist && psdSame && check ? this.handleRegBtnActive() : null;
   };
 
