@@ -1,38 +1,45 @@
 import React, { useState, useEffect } from "react";
+import "./detailPage.css";
 import HcDetail from "../Component/hcDetail/HcDetail.jsx";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import { baseUrl } from "../constVar.js";
-import './detailPage.css';
-import {connect} from 'react-redux';
-import {addHcLike} from '../reduxFIles/actions/hc.js';
+import { connect } from "react-redux";
+import { addDetail } from "../reduxFIles/actions/hc.js";
 
-export default function DetailPage(props) {
-  let [data, setData] = useState(null);
-  let location = useLocation();
-  let url = baseUrl + location.pathname;
+
+const mapStateToProps = (state) =>{
+  return {
+    data : state.hcDetail
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addDetailHc: (data) => {
+      dispatch(addDetail(data));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailPage);
+
+function DetailPage(props) {
+  const { url: pathUrl } = useRouteMatch();
+  let url = baseUrl + pathUrl;
 
   useEffect(() => {
     axios
       .get(url)
-      .then((res) =>setData(res.data.data))
+      .then((res) => {
+        props.addDetailHc(res.data.data);
+      })
       .catch((error) => console.log(error));
   }, []);
-  // if (data){
-  //   props.addHclike(data.huche_like)
-  // }
+
   return (
-    <div className = 'hcDetailPageCon'>
-      {data ? <HcDetail data={data}/> : <></>}
+    <div className="hcDetailPageCon">
+      {props.data ? <HcDetail data={props.data} /> : <></>}
     </div>
   );
 }
-
-// const mapDispatchToProps = (dispatch) =>{
-//   return {
-//     addHclike: () => dispatch(addHcLike())
-//   }
-
-// }
-
-// export default connect(null,mapDispatchToProps)(DetailPage);

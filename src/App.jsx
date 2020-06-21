@@ -6,8 +6,8 @@ import Webpage404 from "./404/404.jsx";
 import DetailPage from "./detailPage/DetailPage.jsx";
 import TopNav from "./Component/topNav/TopNav.jsx";
 import Center from "./center/Center.jsx";
-import Mag from './manage/mag.jsx';
-
+import Mag from "./manage/mag.jsx";
+import { connect } from "react-redux";
 
 import {
   HashRouter as Router,
@@ -16,7 +16,34 @@ import {
   Redirect,
 } from "react-router-dom";
 
-export default function App() {
+const mapStateToProps = (state) => {
+  return {
+    log: state.log,
+  };
+};
+
+PrivateRoute = connect(mapStateToProps, null)(PrivateRoute);
+
+function PrivateRoute({ children, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={() =>
+        rest.log ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+export default App;
+function App(props) {
   return (
     <Fragment>
       <Router>
@@ -34,10 +61,10 @@ export default function App() {
           <Route path="/huche/:id" exact>
             <DetailPage />
           </Route>
-          <Route path="/center/:id">
+          <PrivateRoute path="/center/:id">
             <Center />
-          </Route>
-          <Route path="/manage" >
+          </PrivateRoute>
+          <Route path="/manage">
             <Mag />
           </Route>
           {/* <Route path={"/aboutUs"} exact>

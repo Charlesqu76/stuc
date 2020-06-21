@@ -1,7 +1,18 @@
 import {
+    ADDDETAILHC,
     ADDLIKE,
-    CANCELLIKE,
+    ADDCMT,
+    
 } from '../actionConst';
+
+
+export const addDetail = (hcData) => {
+    return {
+        type: ADDDETAILHC,
+        payload: hcData,
+
+    }
+};
 
 export const addHcLike = (likeUser) => {
     return {
@@ -10,10 +21,13 @@ export const addHcLike = (likeUser) => {
     }
 };
 
-export const cancelHcLIke = (likeUser) => {
+
+
+
+export const addCmt = (cmtInfo) => {
     return {
-        type: CANCELLIKE,
-        payload: likeUser,
+        type: ADDCMT,
+        payload: cmtInfo,
 
     }
 };

@@ -1,0 +1,18 @@
+.LikeShowCon{
+    display: flex;
+    flex-direction: row;
+}
+.likeShowIconCon{
+    width: 30px;
+    height: 30px;
+}
+.likeShowIconCon img{
+    width: 100%;
+    height: 100%;
+}
+.likeShowName {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    margin: 0 3px;
+}

@@ -13,6 +13,8 @@ import CenHc from "./centerHc/cenHc.jsx";
 import { getUserInfo } from "../requestFiles/center.js";
 import ChangePhoto from "../Component/chengePhoto/changePhoto.jsx";
 
+
+
 export default function Center() {
   const [userInfo, setUserInfo] = useState(null);
   const params = useParams();

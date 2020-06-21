@@ -9,8 +9,8 @@ const webpack = require('webpack'); //引入webpack模块，ProvidePlugin是webp
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'js/[name].[hash:7].min.js',
-        chunkFilename: "js/[id].[chunkhash:7].chunk.js"
+        filename: 'static/js/[name].[hash:7].min.js',
+        chunkFilename: "static/js/[id].[chunkhash:7].chunk.js"
     },
     performance: {
         hints: false,
@@ -26,7 +26,7 @@ module.exports = {
                 vendors: {
                     chunks: "all", // 使用 all 模式
                     test: /[\\/]node_modules[\\/]/, // 匹配 node_modules 下的模块
-                    name: "echarts", // 包命名，最终的命名要结合 output 的 chunkFilename
+                    name: "chunk", // 包命名，最终的命名要结合 output 的 chunkFilename
                     minChunks: 1,
                     minSize: 30000,
                     priority: 10 // 设置优先级
@@ -62,7 +62,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 4069,
-                        name: 'static/[name].[hash:7].[ext]',
+                        name: 'static/img/[name].[hash:7].[ext]',
                     }
                 }]
             },
@@ -74,11 +74,10 @@ module.exports = {
             filename: "index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "./css/[name].[hash:7].css",
+            filename: "./static/css/[name].[hash:7].css",
         }),
         new BundleAnalyzerPlugin(), // 使用默认配置
         new webpack.ProvidePlugin({ //它是一个插件，所以需要按插件的用法new一个
-            echarts: 'echarts',
             $: "jquery",
         }),
     ],

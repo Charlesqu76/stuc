@@ -13,13 +13,18 @@ function CenInfo(props) {
   const paras = useParams();
 
   const handleNameBlur = () => {
+    const conf = confirm("确定修改吗");
+    if (conf){
+      let data = new FormData();
+      data.append("name", userName);
+      data.append("userId", paras.id);
+      changeNameFun(data, (value) => {
+        console.log(value);
+      });
+    }
     $(".cenInfoVNameInput").attr("disabled", true);
-    let data = new FormData();
-    data.append("name", userName);
-    data.append("userId", paras.id);
-    changeNameFun(data, (value) => {
-      console.log(value);
-    });
+
+   
   };
 
   return (

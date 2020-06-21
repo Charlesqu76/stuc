@@ -1,0 +1,32 @@
+.HcDownCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.HcDownIconCon{
+    display: flex;
+}
+.HcIconCon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 1px solid grey; */
+    border-radius: 10%;
+    margin: 0px 10px;
+    padding: 4px;
+}
+.HcIconCon p{
+    font-size: 0.75rem;
+}
+
+.HcIcon {
+    width: 20px;
+    height: 20px;
+    /* background-color: red; */
+    margin: 0 5px;
+
+}
+.HcIcon:hover {
+    cursor: pointer;
+}

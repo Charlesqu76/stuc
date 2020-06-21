@@ -10,7 +10,6 @@ const changePhoto = () => {
 export default SideBar;
 function SideBar(props) {
   const {url} = useRouteMatch();
-  console.log(props);
   return (
     <>
       <div className="sideBarCom">

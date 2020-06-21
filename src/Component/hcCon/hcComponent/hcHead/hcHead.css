@@ -1,0 +1,31 @@
+
+.HcHeadCon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.HcHeadImgCon{
+    width: 55px;
+    height: 55px;
+}
+.HcHeadImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.HcHeadNTCon {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    margin-left: 5px;
+    overflow: hidden;
+}
+.HcHeadName {
+    font-size: 1.25rem;
+}
+.HcHeadTime {
+    font-size: 0.675rem;
+}
