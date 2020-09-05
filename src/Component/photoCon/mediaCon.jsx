@@ -37,9 +37,9 @@ const getBackgroundSize = (conWidth, conHeight, imgWith, imgHeight) => {
     height: mulScale * imgHeight - conHeight,
   };
 };
-
-export default MediaCon;
+export default React.memo(MediaCon);
 function MediaCon(props) {
+  console.log('asd');
   const conDiv = useRef();
   useEffect(() => {
     conDiv.current.innerHTML = "";

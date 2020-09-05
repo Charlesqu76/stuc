@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5fe6c935-a385-454d-9f2a-cbdc5974109a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Component/TopNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/TopNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/photoCon/mediaCon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/photoCon/mediaCon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Component/topNav/topNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component/topNav/topNav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prac.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/prac.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tempCodeRunnerFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tempCodeRunnerFile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +62,7 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.prac.js">
+  <component name="RunManager">
     <configuration name="prac.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/prac.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -86,14 +89,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.prac.js" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.test" />
-        <item itemvalue="Node.js.sa.js" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />

@@ -11,8 +11,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        /* background-color: #eaf2f2; */
-        background-color: red;
+        background-color: #eaf2f2;
         height: 60px;
         padding: 5px;
     }
