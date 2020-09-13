@@ -29,7 +29,6 @@ export const hcDetailReducer = (state = null, action) => {
             return state = action.payload
         case ADDCMT:
             state.huche_Comment = [...state.huche_Comment, action.payload]
-            // console.log(state, action.payload);
             return Object.assign({},state)
         case ADDLIKE:
             let exist = false;

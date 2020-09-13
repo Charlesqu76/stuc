@@ -5,6 +5,7 @@ import "./main.css";
 import { createStore,combineReducers } from "redux";
 import {logReducer,hcDetailReducer } from "./reduxFIles/reducers/allReducer.js";
 import { Provider } from "react-redux";
+import 'antd/dist/antd.css';
 
 
 const store = createStore(combineReducers(

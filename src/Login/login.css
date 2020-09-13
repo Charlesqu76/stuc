@@ -1,107 +1,39 @@
-.LoginContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-}
 .LoginCon {
     width: 400px;
-    height: 360px;
+    padding: 10px;
     border: solid 1px #789dc9;
-    border-radius: 20px;
+    border-radius: 5px;
     background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 5px #3d79e9;
-
-}
-.loginErrorCon{
-    width: 90%;
-    background-color: #f07676;
-    font-size: 0.75rem;
-    border-radius: 5px;
-    padding:10px;
-
-    
-}
-.loginErrorCon p{
-    width: 100%;
-    text-align: center;
+    box-shadow: 1px 1px 2px #3d79e9;
 }
 
-.LoginForm{
+.LoginCon>div {
     width: 90%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding:10px;
+
 }
-.LoginNPCon {
-    width: 100%;
-    margin: 5px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.LoginForm {
+    padding: 10px;
 }
+
 .LoginInputCon {
     width: 100%;
     margin: 5px;
-}
-.LoginInput {
-    display: block;
-    width: 96%;
-    height: 40px;
-    background: #F2F5F6;
-    border-radius: 10px;
-    padding: 5px;
-    color: black;
-    font-family: "PingFangSC-Regular";
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    outline: none;
-    border: none;
-}
-.LoginBtnCon{
-    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.LoginBtn {
-    width: 96%;
-    height: 40px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #33548a, #e67f4f);
-    color: white;
-    font-family: "PingFangSC-Regular", serif;
-    font-size: 1rem;
-    font-weight: 400;
-    outline: none;
-    margin: 5px 0;
-}
-.LoginBtn:hover {
-    cursor: pointer;
-}
-.LoginRegCon {
-    width: 28%;
-    text-align: center;
-    padding: 5px;
-    border: solid 1px #33548a;
-    border-radius: 10px;
-    color: #33548a;
-    text-decoration: none;
-    font-weight: bolder;
-}
-.LoginRegCon:hover{
-    background-color: #33548a;
-}
-.LoginForCon{
-    width: 20%;
-    text-align: center;
-    font-size: 0.85rem;
+
+.LoginCon .LoginRegCon {
+    display: flex;
+    flex-direction: row;
 
 }

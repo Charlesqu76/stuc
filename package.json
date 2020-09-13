@@ -11,10 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "^4.10.0",
+    "@ant-design/icons": "^4.2.2",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
     "antd": "^4.6.2",
     "axios": "^0.19.2",
     "cropperjs": "^1.5.7",
+    "jquery": "^3.5.1",
     "mobx": "^5.15.6",
     "mobx-react": "^6.3.0",
     "react": "^16.13.1",
@@ -41,7 +43,7 @@
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1",
     "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "description": ""
 }

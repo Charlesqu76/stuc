@@ -3,9 +3,9 @@ import "./cenSideBar.css";
 import { NavLink, useRouteMatch } from "react-router-dom";
 import { baseUrl } from "../../constVar";
 
-const changePhoto = () => {
-  $("#imgReader").click();
-};
+// const changePhoto = () => {
+//   $("#imgReader").click();
+// };
 
 export default SideBar;
 function SideBar(props) {
