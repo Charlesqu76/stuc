@@ -77,9 +77,6 @@ module.exports = {
             filename: "./static/css/[name].[hash:7].css",
         }),
         new BundleAnalyzerPlugin(), // 使用默认配置
-        new webpack.ProvidePlugin({ //它是一个插件，所以需要按插件的用法new一个
-            $: "jquery",
-        }),
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),

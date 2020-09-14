@@ -44,13 +44,13 @@ export function isLogin() {
 
 
 //查找制定祖辈的id
-export const findId = (ele, findCls) => {
-  if ($(ele).attr('class').includes(findCls)) {
-    return $(ele).attr('id')
-  } else {
-    return findId($(ele).parent(), findCls)
-  }
-}
+// export const findId = (ele, findCls) => {
+//   if ($(ele).attr('class').includes(findCls)) {
+//     return $(ele).attr('id')
+//   } else {
+//     return findId($(ele).parent(), findCls)
+//   }
+// }
 
 //防抖
 export const debound = (fun, delay) => {

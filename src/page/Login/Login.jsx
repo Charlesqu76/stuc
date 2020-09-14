@@ -3,7 +3,7 @@ import css from './login.css'
 import { Input, Form, Button } from 'antd'
 import { action, observable } from "mobx"
 import { observer } from 'mobx-react'
-import Title from '../Component/title/Title.jsx'
+import Title from '../../Component/title/Title.jsx'
 
 @observer
 export default class Login extends React.Component {

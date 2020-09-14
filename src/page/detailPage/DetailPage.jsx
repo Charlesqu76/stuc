@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./detailPage.css";
-import HcDetail from "../Component/hcDetail/HcDetail.jsx";
+import HcDetail from "../../Component/hcDetail/HcDetail.jsx";
 import axios from "axios";
 import { useRouteMatch } from "react-router-dom";
-import { baseUrl } from "../constVar.js";
+import { baseUrl } from "../../constVar.js";
 import { connect } from "react-redux";
-import { addDetail } from "../reduxFIles/actions/hc.js";
+import { addDetail } from "../../reduxFIles/actions/hc.js";
 
 
 const mapStateToProps = (state) =>{

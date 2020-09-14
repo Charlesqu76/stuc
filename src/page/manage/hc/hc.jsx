@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./hc.css";
-import { getHcData, delHcData } from "../../requestFiles/manage.js";
+import { getHcData, delHcData } from "../../../requestFiles/manage.js";
 
 export default Hc;
 function Hc() {

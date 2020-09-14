@@ -1,7 +1,7 @@
 import React from "react";
 import "./cenSideBar.css";
 import { NavLink, useRouteMatch } from "react-router-dom";
-import { baseUrl } from "../../constVar";
+import { baseUrl } from "../../../constVar";
 
 // const changePhoto = () => {
 //   $("#imgReader").click();

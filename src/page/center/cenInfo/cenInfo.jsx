@@ -22,7 +22,7 @@ function CenInfo(props) {
         console.log(value);
       });
     }
-    $(".cenInfoVNameInput").attr("disabled", true);
+    // $(".cenInfoVNameInput").attr("disabled", true);
 
    
   };
@@ -47,7 +47,7 @@ function CenInfo(props) {
             <img
               src={ChangeNameIcon}
               onClick={() => {
-                $(".cenInfoVNameInput").removeAttr("disabled");
+                // $(".cenInfoVNameInput").removeAttr("disabled");
               }}
             />
           </div>
@@ -85,7 +85,7 @@ function CenInfo(props) {
               src={ChangeNameIcon}
               onClick={() => {
                 console.log("asdf");
-                $(".cenInfoSchoolInput").removeAttr("disabled");
+                // $(".cenInfoSchoolInput").removeAttr("disabled");
               }}
             />
           </div>

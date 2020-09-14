@@ -16,7 +16,7 @@ function getFile(e) {
       let dataURL = file.result;
       document.querySelector("#cropImg").src = dataURL;
       const image = document.getElementById("cropImg");
-      $('.changePhotoConDiv').fadeIn('normal');
+      // $('.changePhotoConDiv').fadeIn('normal');
       CROPPER = new Cropper(image, {
         aspectRatio: 16 / 16,
         viewMode: 0,
@@ -62,7 +62,7 @@ function getData() {
 }
 
 function cpExit() {
-  $(".changePhotoConDiv").fadeOut("normal");
+  // $(".changePhotoConDiv").fadeOut("normal");
 }
 
 export default function ChangePhoto(props) {
