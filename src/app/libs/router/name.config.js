@@ -1,4 +1,6 @@
-export const Route = {
+const Routes = {
     Login: '/login',
-    Regist: '/reg',
+    Regist: '/regist',
 }
+
+export {Routes}

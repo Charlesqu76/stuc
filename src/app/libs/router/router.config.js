@@ -1,14 +1,15 @@
-import {Route} from './name.config';
+import {
+    Routes
+} from './name.config';
 import Login from 'app/page/Login/Login';
-import Regist from 'app/page/regist/Reg'
+import Regist from 'app/page/regist/Reg';
 
 export const routes = [{
-        path: Route.Login,
+        path: Routes.Login,
         component: Login,
     },
     {
-        path: Route.Regist,
-        component: Regist
+        path: Routes.Regist,
+        component: Regist,
     }
-
 ]

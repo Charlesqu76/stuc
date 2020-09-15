@@ -41,7 +41,7 @@ module.exports = {
             }
         }
     },
-    mode: "production",
+    mode: "development",
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
@@ -87,7 +87,10 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        port: 3000,
+        port: 3000,        
+        historyApiFallback: true,
+
+
     }
 
 };

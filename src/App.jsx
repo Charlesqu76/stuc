@@ -1,35 +1,11 @@
 import React, { Fragment } from "react";
-import TopNav from "./app/page/Component/topNav/TopNav";
-import { routes } from 'app/libs/router/router.config'
+import Routers from 'app/libs/router/Routers';
 
-import {
-  HashRouter as Router,
-  Switch,
-} from "react-router-dom";
-import { Route } from "app/libs/router/name.config";
 
-export default App;
-function App(props) {
+export default function App() {
   return (
     <Fragment>
-      <Router>
-        <TopNav />
-        <Switch>
-          {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-        </Switch>
-      </Router>
+      <Routers />
     </Fragment>
-  );
-}
-
-
-function RouteWithSubRoutes(route) {
-  return (
-    <Route
-      path={route.path}
-      render={props => (
-        <route.component {...props} routes={route.routes} />
-      )}
-    />
   );
 }

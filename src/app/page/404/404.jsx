@@ -3,7 +3,6 @@ import React from "react";
 function Webpage404() {
   return (
     <div>
-      {/* <TopNav/> */}
       <div
         style={{
           display: "flex",

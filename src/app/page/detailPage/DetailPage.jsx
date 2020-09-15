@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRouteMatch } from "react-router-dom";
 import { baseUrl } from "../../constVar.js";
 import { connect } from "react-redux";
-import { addDetail } from "../../reduxFIles/actions/hc.js";
+import { addDetail } from "../../libs/reduxFIles/actions/hc.js";
 
 
 const mapStateToProps = (state) =>{
