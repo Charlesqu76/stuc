@@ -1,24 +1,19 @@
 import React, { Fragment, useState, useEffect } from "react";
-// import PostCon from "../../Component/postCon/PostCon.jsx";
+import PostCon from "app/page/huche/huchePost/HuchePost";
 // import Hc from "../../Component/hcCon/Hc.jsx";
 import axiso from "axios";
 // import { baseUrl } from "../../constVar.js";
 import "./huche.css";
-import { eleIsVisiable } from "../../utility.js";
+import { eleIsVisiable } from "app/libs/utility";
 // import {debound} from '../../utility.js';
 
 export default HcCom;
 function HcCom() {
-  document.title = "胡扯";
-  const [data, setData] = useState(null);
-  let getData = (data) => {
-    setData(data);
-  };
   return (
     <Fragment>
       <div className="HcComBody">
-        <PostCon getData={getData} />
-        <HcList data={data} />
+        <PostCon />
+        {/* <HcList data={data} /> */}
       </div>
     </Fragment>
   );
@@ -80,8 +75,8 @@ function HcList(props) {
           <p>加载更多...</p>
         </div>
       ) : (
-        <></>
-      )}
+          <></>
+        )}
     </>
   );
 }

@@ -1,30 +1,29 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style-type: none;
     outline: none;
     text-decoration: none;
-
-}
-body{
-    background-color:#f5f9f9;
-
-}
-a{
     color: #000000;
+
+
 }
 
-table{
-        border-collapse: collapse;
+body {
+    background-color: #f5f9f9;
 }
-table, tr, td, th{
-        border: 1px solid rgb(202, 198, 198);
- }
 
- input{
-    background-color: #f2f5f6;
-    border-radius: 5px;
- }
+table {
+    border-collapse: collapse;
+}
 
+table,
+tr,
+td,
+th {
+    border: 1px solid rgb(202, 198, 198);
+}
 
-
+#root {
+    height: 100%;
+}

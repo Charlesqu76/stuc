@@ -10,6 +10,11 @@ export default class Login extends React.Component {
   @observable userName = '';
   @observable password = '';
 
+  componentDidMount(){
+    console.log(this.props)
+    console.log(1111)
+  }
+
   @action
   changeUserName = (e) => {
     this.userName = e.target.value

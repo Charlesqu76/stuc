@@ -12,7 +12,9 @@ export default class Header extends React.Component {
     return <Fragment>
       <div className="TopNav">
         <div className="TopNavTitle" >
-          <Title size={30} />
+          <Button type='text' onClick={() => ERouter.push(Routes.Huche)}>
+            <Title size={30} />
+          </Button>
         </div>
         <Menu mode='horizontal' style={{ backgroundColor: '#eaf2f2' }}>
           <Menu.Item>
