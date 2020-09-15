@@ -1,14 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./topNav.css";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import { topNavVer } from "../../requestFiles/topNav.js";
-import { baseUrl } from "../../constVar.js";
-import { connect } from "react-redux";
-import { logOut } from "../../reduxFIles/actions/log.js";
-import Title from '../title/Title.jsx'
+// import { topNavVer } from "../../requestFiles/topNav.js";
+// import { logOut } from "../../reduxFIles/actions/log.js";
+import Title from 'app/page/Component/title/Title'
 import { QuestionCircleTwoTone } from '@ant-design/icons'
-import { Button, Menu } from 'antd'
+import { Button, Menu } from 'antd';
+import {Route} from 'app/libs/router/name.config'
 
 export default function TopNav() {
   const history = useHistory();
@@ -23,7 +21,7 @@ export default function TopNav() {
         </div>
         <Menu mode='horizontal' style = {{backgroundColor: '#eaf2f2'}}>
           <Menu.Item>
-            <Button type='text'>登陆</Button>
+            <Button type='text' onClick = {()=> history.push(Route.Login)} >登陆</Button>
           </Menu.Item>
           <Menu.Item>
             <Button type='text'>注册</Button>

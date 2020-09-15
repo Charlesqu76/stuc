@@ -1,5 +1,5 @@
-import "./mag.css";
 import React from "react";
+import "./mag.css";
 import { Route, Switch, Redirect, useRouteMatch } from "react-router-dom";
 import User from "./user/user.jsx";
 import Hc from "./hc/hc.jsx";

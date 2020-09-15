@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./user.css";
-import { getUserData } from "../../../requestFiles/manage.js";
+// import { getUserData } from "../../../requestFiles/manage.js";
 
 export default User;
 function User() {

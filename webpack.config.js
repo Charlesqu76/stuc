@@ -12,6 +12,13 @@ module.exports = {
         filename: 'static/js/[name].[hash:7].min.js',
         chunkFilename: "static/js/[id].[chunkhash:7].chunk.js"
     },
+    resolve: {
+        extensions: ['.jsx', '.js', '.json'],
+        alias: {
+            'app': path.resolve(__dirname,'./src/app')
+        },
+    },
+
     performance: {
         hints: false,
         maxEntrypointSize: 512000,

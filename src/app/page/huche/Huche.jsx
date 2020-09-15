@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
-import PostCon from "../../Component/postCon/PostCon.jsx";
-import Hc from "../../Component/hcCon/Hc.jsx";
+// import PostCon from "../../Component/postCon/PostCon.jsx";
+// import Hc from "../../Component/hcCon/Hc.jsx";
 import axiso from "axios";
-import { baseUrl } from "../../constVar.js";
+// import { baseUrl } from "../../constVar.js";
 import "./huche.css";
 import { eleIsVisiable } from "../../utility.js";
-import {debound} from '../../utility.js';
+// import {debound} from '../../utility.js';
 
 export default HcCom;
 function HcCom() {

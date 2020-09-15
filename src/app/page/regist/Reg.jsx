@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { withRouter } from "react-router";
-import { checkType } from "../../utility.js";
-import { checkEmialExist, regPostData } from "../../requestFiles/regist.js";
+// import { checkType } from "../../utility.js";
+// import { checkEmialExist, regPostData } from "../../requestFiles/regist.js";
 import { Input, Checkbox, Button, Form, Space } from 'antd'
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react'
