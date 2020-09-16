@@ -12,7 +12,7 @@ export default class Header extends React.Component {
     return <Fragment>
       <div className="TopNav">
         <div className="TopNavTitle" >
-          <Button type='text' onClick={() => ERouter.push(Routes.Huche)}>
+          <Button type='text' onClick={() => ERouter.push(Routes.Huche)} style={{ height: '100%' }}>
             <Title size={30} />
           </Button>
         </div>
@@ -22,6 +22,9 @@ export default class Header extends React.Component {
           </Menu.Item>
           <Menu.Item>
             <Button type='text' onClick={() => ERouter.push(Routes.Regist)}>注册</Button>
+          </Menu.Item>
+          <Menu.Item>
+            <QuestionCircleTwoTone />
           </Menu.Item>
         </Menu>
       </div>

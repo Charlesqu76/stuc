@@ -1,6 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import "./hcCon.css";
-import { useHistory } from "react-router";
 import HcHead from './hcComponent/hcHead/hcHead.jsx';
 import HcBodyCon from './hcComponent/hcBody/hcBody.jsx';
 import HcDown from './hcComponent/hcDown/hcDown.jsx';

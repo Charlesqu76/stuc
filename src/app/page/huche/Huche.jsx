@@ -1,22 +1,42 @@
 import React, { Fragment, useState, useEffect } from "react";
+import "./huche.css";
+import { remoteGetHucheList } from "app/remote/huche/list";
 import PostCon from "app/page/huche/huchePost/HuchePost";
 // import Hc from "../../Component/hcCon/Hc.jsx";
-import axiso from "axios";
-// import { baseUrl } from "../../constVar.js";
-import "./huche.css";
 import { eleIsVisiable } from "app/libs/utility";
+import { action, observable, runInAction } from "mobx";
+import { observer } from "mobx-react";
 // import {debound} from '../../utility.js';
 
-export default HcCom;
-function HcCom() {
-  return (
-    <Fragment>
-      <div className="HcComBody">
-        <PostCon />
-        {/* <HcList data={data} /> */}
-      </div>
-    </Fragment>
-  );
+@observer
+export default class HcCom extends React.Component {
+  @observable data = null;
+  componentDidMount() {
+    this.getHucheList();
+  }
+
+  @action
+  async getHucheList() {
+    const resp = await remoteGetHucheList.remote("huche");
+    runInAction(() => {
+      this.data = resp.data;
+    });
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <div className="HcComBody">
+          <PostCon />
+          <div className="HcTotalCon">
+            {this.data
+              ? this.data.map((value) => <Hc key={value.id} data={value} />)
+              : null}
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
 }
 
 function HcList(props) {
@@ -36,22 +56,6 @@ function HcList(props) {
     };
     if (loading) {
       window.addEventListener("scroll", watchBounding);
-      axiso
-        .get(url, { params: { page: page } })
-        .then((res) => {
-          if (res.status === 200 && res.data) {
-            let arr = [...res.data.data];
-            if (arr.length) {
-              setDataList([...dataList, ...arr]);
-              if (arr.length < 10) {
-                setLoading(false);
-                window.removeEventListener("scroll", watchBounding);
-              } else {
-              }
-            }
-          }
-        })
-        .catch((e) => console.error(e));
     }
     return () => {
       window.removeEventListener("scroll", watchBounding);
@@ -63,20 +67,5 @@ function HcList(props) {
       props.data ? setDataList([props.data, ...dataList]) : null;
     }
   }, [props.data]);
-  return (
-    <>
-      <div className="HcTotalCon">
-        {dataList.map((value) => (
-          <Hc key={value.id} data={value} />
-        ))}
-      </div>
-      {loading ? (
-        <div className="HcLoadingCon">
-          <p>加载更多...</p>
-        </div>
-      ) : (
-          <></>
-        )}
-    </>
-  );
+  return <></>;
 }

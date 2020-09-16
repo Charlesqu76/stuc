@@ -1,6 +1,7 @@
 import React, { createRef, Fragment } from "react";
 import "./HuchePost.css";
-import { VideoCameraOutlined } from '@ant-design/icons'
+import { VideoCameraOutlined, CameraOutlined } from "@ant-design/icons";
+import { Input, Upload, Form, Button, Space } from "antd";
 export default class PostCon extends React.Component {
   // handleVideoClick = () => {
   //   let read = new FileReader();
@@ -67,49 +68,34 @@ export default class PostCon extends React.Component {
   render() {
     return (
       <div className="PostCon">
-        <form
-          id="inputForm"
-          className="formCon"
-          encType="multipart/form-data"
-        >
-          <textarea
-            className="PostInputText"
-            name="cmt"
-          />
-          <label
-            htmlFor="filePhoto"
-            className="postPhotoImg postImgIcon"
-          >
-            <input
-              type="file"
-              id="filePhoto"
-              hidden
-              accept="image/*"
-              name="photo"
-              multiple
+        <Form style={{ width: "95%" }}>
+          <div className="postConFormTop">
+            <Input.TextArea
+              style={{
+                minWidth: "300px",
+                maxWidth: "70%",
+                borderRadius: "5px",
+              }}
             />
-          </label>
-          <label
-            htmlFor="fileVideo"
-            className="postVideoImg postImgIcon"
-          >
-            <input
-              type="file"
-              id="fileVideo"
-              hidden
-              accept="video/*"
-              name="video"
-            />
-          </label>
-        </form>
-        <div className="PostDownCon">
-          <input
-            type="submit"
-            className="nPostBtn"
-            form="inputForm"
-            value="#发表"
-          />
-        </div>
+            <Upload style={{ margin: "0 5px" }}>
+              <CameraOutlined
+                title={"照片"}
+                style={{ fontSize: "40px", margin: "0 10px" }}
+              />
+            </Upload>
+            <Upload disabled>
+              <VideoCameraOutlined
+                title={"视频"}
+                style={{ fontSize: "40px" }}
+              />
+            </Upload>
+          </div>
+          <div className="postConFormBottom">
+            <Button type="primary" style={{ borderRadius: "5px" }}>
+              #发表
+            </Button>
+          </div>
+        </Form>
       </div>
     );
   }
