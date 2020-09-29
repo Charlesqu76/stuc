@@ -1,19 +1,15 @@
 .LoginCon {
-    width: 400px;
-    height: 400px;
+    width: 100%;
     padding: 10px;
-    border: solid 1px #789dc9;
     border-radius: 5px;
-    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 2px #3d79e9;
 }
 
 .LoginCon>div {
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +23,7 @@
 
 .LoginInputCon {
     width: 100%;
-    margin: 5px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;

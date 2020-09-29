@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Routers from 'app/libs/router/Routers';
+import Routers from 'app/Routers';
 
 
 export default function App() {

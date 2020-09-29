@@ -28,18 +28,6 @@ module.exports = {
         minimizer: [
             new OptimizeCSSAssetsPlugin({})
         ],
-        splitChunks: {
-            cacheGroups: {
-                vendors: {
-                    chunks: "all", // 使用 all 模式
-                    test: /[\\/]node_modules[\\/]/, // 匹配 node_modules 下的模块
-                    name: "chunk", // 包命名，最终的命名要结合 output 的 chunkFilename
-                    minChunks: 1,
-                    minSize: 30000,
-                    priority: 10 // 设置优先级
-                }
-            }
-        }
     },
     mode: "development",
     module: {
@@ -54,9 +42,6 @@ module.exports = {
                 test: /\.css$/,
                 use: [{
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: '../'
-                        }
                     },
                     {
                         loader: 'css-loader'

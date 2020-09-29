@@ -1,8 +1,19 @@
-import React, { createRef, Fragment } from "react";
+import React from "react";
 import "./HuchePost.css";
 import { VideoCameraOutlined, CameraOutlined } from "@ant-design/icons";
-import { Input, Upload, Form, Button, Space } from "antd";
+import { Input, Upload, Form, Button } from "antd";
+import {observer} from 'mobx-react'
+import {observable, action} from 'mobx'
+
+@observer
 export default class PostCon extends React.Component {
+  @observable textValue = '';
+
+  @action 
+  changeTextValue = (e) =>{
+    this.textValue = e.target.value
+  }
+
   // handleVideoClick = () => {
   //   let read = new FileReader();
   //   read.readAsDataURL(this.video.current.files[0]);
@@ -71,6 +82,8 @@ export default class PostCon extends React.Component {
         <Form style={{ width: "95%" }}>
           <div className="postConFormTop">
             <Input.TextArea
+              onChange={this.changeTextValue}
+              value = {this.textValue}
               style={{
                 minWidth: "300px",
                 maxWidth: "70%",

@@ -17,7 +17,6 @@
     }
 }
 
-
 .TopNavTitle{
     width: 230px;
 }
@@ -26,11 +25,11 @@
     cursor: pointer;
 }
 .TopNavRight{
-    min-width: 180px;
-    width: 20%;   
-    justify-self: self-end;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+}
+.TopNavRight > div{
+    margin: 0px 10px;
 }
