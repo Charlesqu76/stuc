@@ -4,5 +4,7 @@ import {
 
 
 export const requestUserLogin = {
-    remote = request.post(url, pararm)
+    remote:  function (pararm) {
+        return request.post('signin/login/', pararm)
+    }
 }

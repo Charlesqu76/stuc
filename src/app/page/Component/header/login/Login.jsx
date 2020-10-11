@@ -3,6 +3,7 @@ import "./login.css";
 import { Input, Alert, Button } from "antd";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
+import { requestUserLogin } from "app/remote/user/login";
 
 @observer
 export default class Login extends React.Component {
@@ -20,10 +21,24 @@ export default class Login extends React.Component {
   changePsd = (e) => {
     this.password = e.target.value;
   };
+
+  handleLogin = async () => {
+    const param = {
+      name: this.userName,
+      psd: this.password,
+    };
+    const resp = await requestUserLogin.remote(param);
+    console.log(resp);
+  };
+
   render() {
     return (
       <div className="LoginCon">
-        <Alert type = {'error'} message = {'账号或密码错误'} style = {{fontSize: '10px', width: '90%'}}/>
+        <Alert
+          type={"error"}
+          message={"账号或密码错误"}
+          style={{ fontSize: "10px", width: "90%" }}
+        />
         <div className="LoginForm">
           <div className="LoginInputCon">
             <Input
@@ -45,6 +60,7 @@ export default class Login extends React.Component {
             <Button
               type="primary"
               style={{ borderRadius: "5px", width: "100%" }}
+              onClick={this.handleLogin}
             >
               登陆
             </Button>

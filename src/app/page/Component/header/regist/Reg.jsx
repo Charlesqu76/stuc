@@ -1,25 +1,15 @@
 import React from "react";
-import { Input, Checkbox, Button, Form } from "antd";
-import { observable, action } from "mobx";
+import { Input, Checkbox, Button, Form, Alert } from "antd";
+import { observable, action, runInAction } from "mobx";
 import { observer } from "mobx-react";
 import "./regist.css";
 import { requestUserRegist } from "app/remote/user/regist";
+import { emailValid, userNameValid } from "app/libs/utility/validinput";
 
-export default function Reg() {
-  return (
-    <div>
-      <div className="RegContainer">
-        <div className="RegCon">
-          <RegForm />
-        </div>
-      </div>
-    </div>
-  );
-}
 @observer
-class RegForm extends React.Component {
+export default class Reg extends React.Component {
   @observable name = "";
-  @observable emial = "";
+  @observable email = "";
   @observable psd = "";
   @observable psdSec = "";
   @observable check = "";
@@ -29,10 +19,14 @@ class RegForm extends React.Component {
   @action
   changeName = (e) => {
     this.name = e.target.value;
+    console.log(this.name);
+    if (!userNameValid(this.name)) {
+      console.log("asdasd");
+    }
   };
   @action
   changeEmail = (e) => {
-    this.emial = e.target.value;
+    this.email = e.target.value;
   };
   @action
   changePsd = (e) => {
@@ -48,127 +42,75 @@ class RegForm extends React.Component {
   };
 
   @action
-  registHandle = async() => {
+  registHandle = async () => {
     const param = {
       name: this.name,
-      emial: this.emial,
+      email: this.email,
       psd: this.psd,
+      psdSec: this.psdSec,
     };
     let a = await requestUserRegist.remote(param);
-    console.log(a)
+    console.log(a);
+    runInAction(() => {
+      (this.name = ""), (this.email = ""), (this.psd = ""), (this.psdSec = "");
+    });
   };
-
-  //验证条件是否全都符合
-  // activeBtn = () => {
-  //   const { emailExist, psdSame, check } = this.state;
-  //   !emailExist && psdSame && check ? this.handleRegBtnActive() : null;
-  // };
-
-  // RegReturnData = (data) => {
-  //   if (data.status === 200) {
-  //     if (data.data.success === 1) {
-  //       this.props.history.push("/login");
-  //     } else if (data.data.success === 0) {
-  //       alert("wrong");
-  //     }
-  //   } else {
-  //     alert("wrong");
-  //   }
-  // };
-
-  //表单提交
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { name, email, psd, psdCon, check, emailExist, psdSame } = this.state;
-  //   if (check && !emailExist && psdSame) {
-  //     let data = {
-  //       name: name,
-  //       email: email,
-  //       psd: psd,
-  //       psdCon: psdCon,
-  //     };
-  //     regPostData(data, (value) => this.RegReturnData(value))
-  //   } else {
-  //     alert("请同意");
-  //   }
-  // };
-
-  //邮箱验证
-  // emailonBlur = () => {
-  //   const { email } = this.state;
-  //   if (checkType("email", email)) {
-  //     checkEmialExist({ email: email }, (value) => {
-  //       if (value.data["exist"]) {
-  //         this.setState({
-  //           emailExist: true,
-  //           textError: "邮箱已存在，请重新输入",
-  //         }, this.activeBtn);
-  //       } else {
-  //         this.setState({ emailExist: false, textError: null }, this.activeBtn);
-  //       }
-  //     });
-  //   } else {
-  //     this.setState({ textError: "请输入正确邮箱格式" }, this.activeBtn);
-  //   }
-  // };
-  //psd是否相等
-  // psdConblur = () => {
-  //   const { psd, psdCon } = this.state
-  //   if (psd && psd === psdCon) {
-  //     this.setState({ psdSame: true, textError: null });
-  //   } else {
-  //     this.setState({
-  //       textError: "两次密码输入不一致，请重新输入",
-  //     }, this.activeBtn);
-  //   }
-
-  // };
-
   render() {
     return (
-      <Form className={"regFormCom"}>
-        <Form.Item label={"用户名"}>
-          <Input placeholder="请设置用户名" onChange={this.changeName} />
-        </Form.Item>
-        <Form.Item label={"邮箱"}>
-          <Input placeholder="请设置邮箱" onChange={this.handleChange} />
-        </Form.Item>
-        <Form.Item label={"密码"}>
-          <Input.Password
-            placeholder="请设置登陆密码"
-            onChange={this.handleChange}
-          />
-        </Form.Item>
-        <Form.Item label={"确认密码"}>
-          <Input.Password
-            placeholder="请确认登陆密码"
-            onChange={this.handleChange}
-            onBlur={this.psdConblur}
-          />
-        </Form.Item>
-        <Form.Item className="RegFormCheckCon">
-          <Checkbox
-            type="checkbox"
-            value={this.check}
-            onClick={this.handleClickChechbox}
-          />
-          <p style={{ margin: "0 10px" }}>
-            阅读并接受
-            <a href="" _blank="true" style={{ color: "#33548a" }}>
-              《StudentClub用户协议》
-            </a>
-          </p>
-        </Form.Item>
-        <Form.Item>
-          <Button
-            // disabled={true}
-            style={{ width: "100%", borderRadius: "5px" }}
-            onClick={() => this.registHandle()}
-          >
-            注册
-          </Button>
-        </Form.Item>
-      </Form>
+      <div>
+        <div className="RegContainer">
+          <div className="RegCon">
+            <Alert
+              type={"error"}
+              message={"ss"}
+              style={{ fontSize: "10px", width: "90%", marginBottom: '10px'}}
+            />
+            <Form className={"regFormCom"}>
+              <Form.Item label={"用户名"}>
+                <Input placeholder="请设置用户名" onChange={this.changeName} />
+              </Form.Item>
+              <Form.Item label={"邮箱"}>
+                <Input placeholder="请设置邮箱" onChange={this.changeEmail} />
+              </Form.Item>
+              <Form.Item label={"密码"}>
+                <Input.Password
+                  placeholder="请设置登陆密码"
+                  onChange={this.changePsd}
+                />
+              </Form.Item>
+              <Form.Item label={"确认密码"}>
+                <Input.Password
+                  placeholder="请确认登陆密码"
+                  onChange={this.changePsdSec}
+                  onBlur={this.psdConblur}
+                />
+              </Form.Item>
+              <Form.Item className="RegFormCheckCon">
+                <Checkbox
+                  type="checkbox"
+                  checked={this.check}
+                  onClick={this.handleClickChechbox}
+                />
+                <p style={{ margin: "0 10px" }}>
+                  阅读并接受
+                  <a href="" _blank="true" style={{ color: "#33548a" }}>
+                    《StudentClub用户协议》
+                  </a>
+                </p>
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  // disabled={true}
+                  style={{ width: "100%", borderRadius: "5px" }}
+                  onClick={() => this.registHandle()}
+                >
+                  注册
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+        </div>
+      </div>
     );
   }
 }
