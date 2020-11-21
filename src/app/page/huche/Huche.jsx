@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import "./huche.css";
+import style from "./huche.css";
 import { remoteGetHucheList } from "app/remote/huche/list";
 import PostCon from "app/page/huche/huchePost/HuchePost";
 import { eleIsVisiable } from "app/libs/utility";
@@ -27,9 +27,9 @@ export default class HcCom extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="HcComBody">
+        <div className={style.HcComBody}>
           <PostCon />
-          <div className="HcTotalCon">
+          <div className={style.HcTotalCon}>
             {this.data
               ? this.data.map((value) => <Hc key={value.id} data={value} />)
               : null}

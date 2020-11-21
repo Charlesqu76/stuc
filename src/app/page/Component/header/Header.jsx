@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
-import "./Header.css";
+import style from "./Header.css";
 import Title from "app/page/Component/header/title/Title";
 import { QuestionCircleTwoTone } from "@ant-design/icons";
-import { Button, Modal, Tabs } from "antd";
 import { Routes } from "app/libs/router/name.config";
 import { ERouter } from "app/Routers";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 import Login from "./login/Login";
 import Regist from "./regist/Reg";
+import Model from 'app/page/Component/Modal/Modal.jsx'
 
 @observer
 export default class Header extends React.Component {
-  @observable showModal = true;
+  @observable showModal = false;
 
   @action
   changeShowModal = () => {
@@ -22,21 +22,15 @@ export default class Header extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="TopNav">
-          <div className="TopNavTitle">
-            <Button
-              type="text"
-              onClick={() => ERouter.push(Routes.Huche)}
-              style={{ height: "100%" }}
-            >
-              <Title size={30} />
-            </Button>
+        <div className={style.TopNav}>
+          <div className={style.TopNavTitle}>
+            <Title size={30} onClick={() => ERouter.push(Routes.Huche)} />
           </div>
-          <div className={"TopNavRight"}>
+          <div className={style.TopNavRight}>
             <div>
-              <Button type="text" onClick={this.changeShowModal}>
+              <button onClick={this.changeShowModal} className = {style.textButton}>
                 登陆
-              </Button>
+              </button>
             </div>
             <div>
               <QuestionCircleTwoTone
@@ -44,23 +38,9 @@ export default class Header extends React.Component {
               />
             </div>
           </div>
-          <Modal
-            visible={this.showModal}
-            destroyOnClose={true}
-            onOk={this.changeShowModal}
-            onCancel={this.changeShowModal}
-            footer={null}
-            maskClosable={false}
-          >
-            <Tabs defaultActiveKey={1}>
-              <Tabs.TabPane tab={"登陆"} key={1}>
-                <Login />
-              </Tabs.TabPane>
-              <Tabs.TabPane tab={"注册"} key={2}>
-                <Regist />
-              </Tabs.TabPane>
-            </Tabs>
-          </Modal>
+          <Model show = {this.showModal}>
+              <Login />
+          </Model>
         </div>
       </Fragment>
     );

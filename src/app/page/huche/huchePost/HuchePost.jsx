@@ -1,17 +1,22 @@
 import React from "react";
-import "./HuchePost.css";
+import style from "./HuchePost.css";
 import { VideoCameraOutlined, CameraOutlined } from "@ant-design/icons";
-import { Input, Upload, Form, Button } from "antd";
-import {observer} from 'mobx-react'
-import {observable, action} from 'mobx'
+import { observer } from "mobx-react";
+import { observable, action } from "mobx";
 
 @observer
 export default class PostCon extends React.Component {
-  @observable textValue = '';
+  @observable textValue = "";
 
-  @action 
-  changeTextValue = (e) =>{
-    this.textValue = e.target.value
+  @action
+  changeTextValue = (e) => {
+    this.textValue = e.target.value;
+  };
+
+
+  imgUplaod(params) {
+    
+    
   }
 
   // handleVideoClick = () => {
@@ -78,37 +83,31 @@ export default class PostCon extends React.Component {
 
   render() {
     return (
-      <div className="PostCon">
-        <Form style={{ width: "95%" }}>
-          <div className="postConFormTop">
-            <Input.TextArea
+      <div className={style.PostCon}>
+        <div className={style.postConFormTop}>
+          <div className ={style.postConTextareaCon}>
+            <textarea
               onChange={this.changeTextValue}
-              value = {this.textValue}
+              value={this.textValue}
               style={{
                 minWidth: "300px",
                 maxWidth: "70%",
                 borderRadius: "5px",
               }}
             />
-            <Upload style={{ margin: "0 5px" }}>
-              <CameraOutlined
-                title={"照片"}
-                style={{ fontSize: "40px", margin: "0 10px" }}
-              />
-            </Upload>
-            <Upload disabled>
-              <VideoCameraOutlined
-                title={"视频"}
-                style={{ fontSize: "40px" }}
-              />
-            </Upload>
           </div>
-          <div className="postConFormBottom">
-            <Button type="primary" style={{ borderRadius: "5px" }}>
-              #发表
-            </Button>
+          <div className = {style.postConUploadCon}>
+            <input type="file" className={style.fileImgUpload} onClick = {}/>
+            <div onClick = {}>img</div>
+            <input type="file" disabled className={style.fileVideoUpload} />
+            <div>vide</div>
           </div>
-        </Form>
+        </div>
+        <div className={style.postConFormBottom}>
+          <button type="primary" style={{ borderRadius: "5px" }}>
+            #发表
+          </button>
+        </div>
       </div>
     );
   }

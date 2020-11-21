@@ -1,6 +1,5 @@
 import React from "react";
-import "./login.css";
-import { Input, Alert, Button } from "antd";
+import style from "./login.css";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 import { requestUserLogin } from "app/remote/user/login";
@@ -33,42 +32,21 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="LoginCon">
-        <Alert
-          type={"error"}
-          message={"账号或密码错误"}
-          style={{ fontSize: "10px", width: "90%" }}
-        />
-        <div className="LoginForm">
-          <div className="LoginInputCon">
-            <Input
-              style={{ borderRadius: "5px" }}
-              placeholder="用户名"
-              value={this.userName}
-              onChange={this.changeUserName}
-            />
+      <div className={style.LoginCon}>
+        <div className={style.LoginForm}>
+          <div className={style.LoginInputCon}>
+            <input placeholder = {'用户名'}/>
           </div>
-          <div className="LoginInputCon">
-            <Input.Password
-              style={{ borderRadius: "5px" }}
-              placeholder="密码"
-              value={this.password}
-              onChange={this.changePsd}
-            />
+          <div className={style.LoginInputCon}>
+            <input placeholder = {'密码'}/>
           </div>
-          <div className="LoginInputCon">
-            <Button
-              type="primary"
-              style={{ borderRadius: "5px", width: "100%" }}
-              onClick={this.handleLogin}
-            >
-              登陆
-            </Button>
+          <div className={style.LoginInputCon}>
+            <button>登陆</button>
           </div>
         </div>
-        <div className="LoginRegCon">
-          <Button type="link">新用户注册</Button>
-          <Button type="link">忘记密码</Button>
+        <div className={style.LoginRegCon}>
+          <button className = {style.loginRegbtn}>新用户注册</button>
+          <button className = {style.loginForgetbtn}>忘记密码</button>
         </div>
       </div>
     );

@@ -4,7 +4,7 @@ import { observable, action, runInAction } from "mobx";
 import { observer } from "mobx-react";
 import "./regist.css";
 import { requestUserRegist } from "app/remote/user/regist";
-import { emailValid, userNameValid } from "app/libs/utility/validinput";
+import { userNameValid } from "app/libs/utility/validinput";
 
 @observer
 export default class Reg extends React.Component {

@@ -1,9 +1,9 @@
 import React from 'react';
-import css from './title.css';
+import style from './title.css';
 const Title = (props) => {
     return <div style = {{fontSize: `${props.size}px`}}>
-        <span className='titleFir'>Student</span>
-        <span className='titleSec'>Club</span>
+        <span className={style.titleFir}>Student</span>
+        <span className={style.titleSec}>Club</span>
     </div>
 }
 export default Title

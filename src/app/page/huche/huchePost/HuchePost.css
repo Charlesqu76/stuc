@@ -7,14 +7,11 @@
     min-width: 300px;
     padding: 3px;
     margin-bottom: 20px;
+    background-color: silver;
 }
 
-.formCon {
-    width: 96%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+
+
 
 .postConFormTop {
     display: flex;
@@ -22,7 +19,20 @@
     align-items: center;
     margin: 10px 0;
 }
+.postConTextareaCon > textarea{
+    padding: 3px;
 
-.postConFormTop {
-    margin: 10px 0;
+}
+
+.postConUploadCon{
+    display: flex;
+    
+}
+
+.fileVideoUpload{
+    display: none;
+}
+
+.fileImgUpload{
+    display: none
 }

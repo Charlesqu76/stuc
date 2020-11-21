@@ -33,3 +33,9 @@
 .TopNavRight > div{
     margin: 0px 10px;
 }
+.textButton{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 16px;
+}
